@@ -1,0 +1,28 @@
+---
+import H1 from '@components/H1.vue';
+import H4 from '@components/H4.vue';
+
+export interface Props {
+  name?: string;
+  description?: string;
+}
+
+const { name = 'Futurestate Design', description } = Astro.props;
+---
+
+<div class="bg-grey-dark text-white">
+  <div class="class='max-w-[90rem] mx-auto">
+    <div class="container relative lg:h-[760px] pt-[140px] lg:pt-[220px]">
+      <div class="space-y-8 lg:space-y-16 pb-8 lg:pb-16">
+      {name && (
+        <H1 class="max-w-[280px] lg:max-w-3xl">
+          <span class="bg-yellow text-grey-dark box-decoration-clone">
+            {name}
+          </span>
+          </H1>
+      )}
+      {description && <H4 as="p" class="max-w-md">{description}</H4>}
+      </div>
+    </div>
+  </div>
+</div>

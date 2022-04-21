@@ -1,0 +1,35 @@
+---
+import Default from '@layouts/Default.astro'
+import { Hero } from '@components/index.astro'
+import Container from '@components/Container.vue'
+import BlockQuote from '@components/BlockQuote.vue'
+import { Content as Home } from '../content/pages/home.md'
+
+const title = 'Futurestate Design'
+const description =
+  'How to step out of the past to create a business fit for the future'
+---
+
+<Default {title}>
+  <article>
+    <Hero {description} />
+    <div class="py-12 lg:py-29">
+      <Container>
+        <div class="grid gap-5 lg:grid-cols-12">
+          <div class="lg:col-start-1 lg:col-end-7">
+            <div
+              class="prose prose-black lg:prose-xl leading-tight lg:leading-tight">
+              <Home />
+            </div>
+          </div>
+          <div class="lg:col-start-8 lg:col-end-12">
+            <BlockQuote
+              name="Mark Wilson"
+              description="Think of it as the equivalent of bringing a prototype back from the future so that everyone can see what they’re working towards."
+            />
+          </div>
+        </div>
+      </Container>
+    </div>
+  </article>
+</Default>
