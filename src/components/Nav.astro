@@ -18,6 +18,6 @@ const {
 <nav aria-labelledby={nav.id}>
   <h2 id={nav.id} class="hidden">{nav.name}</h2>
   <ul class="flex lg:gap-5">
-    {nav.items.map(item =><li><Button as="a" href={item.url} class="text-white">{item.name}</Button></li>)}
+    {nav.items.map(item =><li><Button as="a" href={item.url} class="text-current">{item.name}</Button></li>)}
   </ul>
 </nav>
