@@ -11,8 +11,8 @@ export default {
   props: {
     as: {
       type: String,
-      default: 'h6',
-    },
-  },
+      default: 'h6'
+    }
+  }
 }
 </script>

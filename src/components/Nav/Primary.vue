@@ -14,13 +14,13 @@
 import Button from '../Button.vue'
 export default {
   components: {
-    Button,
+    Button
   },
   name: 'NavPrimary',
   props: {
     nav: {
-      type: Object,
-    },
-  },
+      type: Object
+    }
+  }
 }
 </script>

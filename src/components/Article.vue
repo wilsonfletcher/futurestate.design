@@ -10,11 +10,13 @@
         :alt="image.alt"
         loading="lazy" />
     </div>
-    <h3 class="font-bold text-2xl leading-tight">
+    <h3 v-if="name" class="font-bold text-2xl leading-tight">
       <a class="c-url" :href="url" target="_blank" rel="external">{{ name }}</a>
     </h3>
-    <time class="sr-only" :datetime="datePublished">{{ datePublished }}</time>
-    <p class="line-clamp-2">{{ description }}</p>
+    <time v-if="datePublished" class="sr-only" :datetime="datePublished">{{
+      datePublished
+    }}</time>
+    <p v-if="description" class="line-clamp-2">{{ description }}</p>
   </article>
 </template>
 
@@ -23,24 +25,24 @@ export default {
   props: {
     name: {
       type: String,
-      required: false,
+      required: false
     },
     description: {
       type: String,
-      required: false,
+      required: false
     },
     url: {
       type: String,
-      required: false,
+      required: false
     },
     image: {
       type: Object,
-      required: false,
+      required: false
     },
     datePublished: {
       type: String,
-      required: false,
-    },
-  },
+      required: false
+    }
+  }
 }
 </script>

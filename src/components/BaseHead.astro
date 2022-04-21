@@ -1,0 +1,71 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  permalink: string;
+  publishDate: string;
+  ogImageUrl: string;
+  canonicalURL?: string;
+  bookSchema?: boolean;
+}
+
+import BookSchema from "./BookSchema.jsx";
+import site from "../data/site.js";
+
+const { title, description, permalink, publishDate, ogImageUrl, canonicalURL, bookSchema } = Astro.props;
+const GTM = import.meta.env.PUBLIC_GTM;
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+<link rel="icon" href="/favicon.svg">
+<link rel="stylesheet" href="/style/global.css"/>
+<!-- Primary Meta Tags -->
+<title>{title || site.title}</title>
+<meta name="title" content={title || site.title} />
+<meta name="description" content={description || site.description} />
+<!-- Sitemap -->
+<link rel="sitemap" href="/sitemap.xml">
+<!-- RSS -->
+<link rel="alternate" type="application/rss+xml" title={`${site.name} Blog`} href={`${site.url}/feed/blog.xml`}/>
+<!-- Canonical -->
+<link rel="canonical" href={canonicalURL}>
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonicalURL || site.url} />
+<meta property="og:title" content={title || site.title} />
+<meta property="og:description" content={description || site.description} />
+<meta property="og:image" content={ogImageUrl ? `${site.url}${ogImageUrl}` : `${site.url}/assets/img/social.jpg`} />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={canonicalURL || site.url} />
+<meta property="twitter:title" content={title || site.title} />
+<meta property="twitter:description" content={description || site.description} />
+<meta property="twitter:image" content={ogImageUrl ? `${site.url}${ogImageUrl}` : `${site.url}/assets/img/social.jpg`} />
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+rel="preload"
+href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;700;800;900&amp;display=swap"
+as="style"
+onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;700;800;900&amp;display=swap"
+    rel="stylesheet"
+    type="text/css">
+</noscript>
+{bookSchema && (<BookSchema title={title} description={description} permalink={permalink} publishDate={publishDate} ogImageUrl={ogImageUrl} />)}
+<!-- Google Tag Manager -->
+<script type="text/partytown">
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5N2GZXN');
+</script>
+<!-- End Google Tag Manager -->

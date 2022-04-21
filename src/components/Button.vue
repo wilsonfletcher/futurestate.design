@@ -10,17 +10,17 @@ export default {
   props: {
     as: {
       type: String,
-      default: 'button',
+      default: 'button'
     },
     type: {
       type: String,
-      values: ['primary', 'secondary'],
-      default: 'primary',
+      values: ['primary', 'secondary']
+      // default: 'primary',
     },
     text: {
       type: String,
-      default: 'Button',
-    },
+      default: 'Button'
+    }
   },
   computed: {
     btnClass() {
@@ -33,8 +33,8 @@ export default {
       }
 
       return classes.join(' ')
-    },
-  },
+    }
+  }
 }
 </script>
 

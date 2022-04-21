@@ -3,17 +3,15 @@ import Container from '@components/Container.vue'
 import H3 from '@components/h3.vue'
 import Article from '@components/Article.vue'
 
-const articles = await Astro.glob('../content/articles/**/index.md')
-
-const path = Astro.site.pathname;
+let articles = await Astro.glob('../content/articles/**/index.md')
+articles = articles.sort((a, b) => new Date(b.frontmatter.datePublished).valueOf() - new Date(a.frontmatter.datePublished).valueOf());
 
 const name = 'Read on'
 const id = 'read-on'
 ---
 
-<section class="bg-grey-light py-12 lg:py-24" aria-labelledby={id}>
+<section aria-labelledby={id} class="bg-grey-light py-12 lg:py-24">
   <Container>
-    <h1>Welcome to {path}</h1>
     <H3 as="h2" {id} class="mb-5">{name}</H3>
     <div class="grid gap-5 md:grid-cols-3 lg:gap-14">
       {articles.slice(0, 3).map((article) => {
@@ -30,6 +28,5 @@ const id = 'read-on'
       }
       )}
     </div>
-    <pre>{JSON.stringify(articles, null, 2)}</pre>
   </Container>
 </section>

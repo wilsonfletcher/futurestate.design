@@ -19,12 +19,12 @@ export default {
     name: {
       type: String,
       required: false,
-      default: null,
+      default: null
     },
     description: {
       type: String,
-      required: true,
-    },
-  },
+      required: true
+    }
+  }
 }
 </script>

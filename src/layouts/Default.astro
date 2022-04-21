@@ -1,30 +1,67 @@
 ---
-import Header from '../containers/Header.astro'
+import BaseHead from '../components/BaseHead.astro'
+import Header from '@components/Header.astro'
+import Container from '@components/Container.vue'
+import Button from '@components/Button.vue'
+import H3 from '@components/H3.vue'
+import Footer from '@components/Footer.vue'
 import '@styles/global.css'
 
-export interface Props {
-  title?: string
-}
+import site from '../data/site.js'
 
-const { title = 'Futurestate Design' } = Astro.props
+const { title, description, permalink, canonicalURL } = Astro.props
+const GTM = import.meta.env.PUBLIC_GTM
 ---
 
-<html lang="en">
+<html lang={site.lang}>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>{title}</title>
-    <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;700;800;900&amp;display=swap"
-    />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <BaseHead {title} {description} {permalink} {canonicalURL} />
   </head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src={`https://www.googletagmanager.com/ns.html?id=${GTM}`}
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"></iframe></noscript
+    >
+    <!-- End Google Tag Manager (noscript) -->
     <div class="flex flex-col min-h-screen w-screen">
       <Header />
       <main class="flex-auto"><slot /></main>
+      <aside>
+        <img
+          src="/images/closeup.jpg"
+          class="w-full"
+          loading="lazy"
+          width="1440"
+          height="233"
+          alt=""
+        />
+        <div class="bg-grey-dark text-white py-12 lg:py-22">
+          <Container>
+            <div class="grid gap-5 md:grid-cols-2">
+              <div>
+                <H3>
+                  <a
+                    href="/"
+                    rel="home"
+                    class="bg-yellow text-grey-dark box-decoration-clone"
+                    >Futurestate design</a
+                  >
+                </H3>
+              </div>
+              <div class="md:text-right">
+                <Button as="span" class="text-white border-current"
+                  >Available 12th May</Button
+                >
+              </div>
+            </div>
+          </Container>
+        </div>
+      </aside>
+      <Footer />
     </div>
   </body>
 </html>
