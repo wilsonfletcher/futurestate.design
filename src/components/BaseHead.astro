@@ -14,6 +14,7 @@ import site from "../data/site.js";
 
 const { title, description, permalink, publishDate, ogImageUrl, canonicalURL, bookSchema } = Astro.props;
 // const GTM = import.meta.env.PUBLIC_GTM;
+const GOOGLE_SITE_VERIFICATION = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION
 ---
 
 <meta charset="utf-8" />
@@ -21,36 +22,26 @@ const { title, description, permalink, publishDate, ogImageUrl, canonicalURL, bo
 
 <link rel="icon" href="/favicon.svg">
 <!-- <link rel="stylesheet" href="/style/global.css"/> -->
-<!-- Primary Meta Tags -->
 <title>{title || site.title}</title>
-<meta name="title" content={title || site.title} />
-<meta name="description" content={description || site.description} />
-<!-- Sitemap -->
+<meta name="title" content={title || site.title}>
+<meta name="description" content={description || site.description}>
 <link rel="sitemap" href="/sitemap.xml">
-<!-- RSS -->
-<link rel="alternate" type="application/rss+xml" title={`${site.name} Blog`} href={`${site.url}/feed/blog.xml`}/>
-<!-- Canonical -->
+<!-- <link rel="alternate" type="application/rss+xml" title={`${site.name} Blog`} href={`${site.url}/feed/blog.xml`}> -->
 <link rel="canonical" href={canonicalURL}>
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content={canonicalURL || site.url} />
-<meta property="og:title" content={title || site.title} />
-<meta property="og:description" content={description || site.description} />
-<meta property="og:image" content={ogImageUrl ? `${site.url}${ogImageUrl}` : `${site.url}/assets/img/social.jpg`} />
-
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={canonicalURL || site.url} />
-<meta property="twitter:title" content={title || site.title} />
-<meta property="twitter:description" content={description || site.description} />
-<meta property="twitter:image" content={ogImageUrl ? `${site.url}${ogImageUrl}` : `${site.url}/assets/img/social.jpg`} />
-
+<meta property="og:type" content="website">
+<meta property="og:url" content={canonicalURL || site.url}>
+<meta property="og:title" content={title || site.title}>
+<meta property="og:description" content={description || site.description}>
+<meta property="og:image" content={ogImageUrl ? `${site.url}${ogImageUrl}` : `${site.url}/images/book-1.jpg`}>
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content={canonicalURL || site.url}>
+<meta property="twitter:title" content={title || site.title}>
+<meta property="twitter:description" content={description || site.description}>
+<meta property="twitter:image" content={ogImageUrl ? `${site.url}${ogImageUrl}` : `${site.url}/images/book-1.jpg`}>
 <meta
 name="robots"
 content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
 />
-
-<!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
@@ -65,6 +56,7 @@ onload="this.onload=null;this.rel='stylesheet'">
     type="text/css">
 </noscript>
 <meta name="apple-mobile-web-app-title" content={site.name}>
-<link rel="manifest" href="/manifest.json" data-hid="manifest">
+<link rel="manifest" href="/manifest.json">
+<meta name="google-site-verification" content={GOOGLE_SITE_VERIFICATION} />
 {bookSchema && (<BookSchema title={title} description={description} permalink={permalink} publishDate={publishDate} ogImageUrl={ogImageUrl} />)}
 <!-- <script type="text/partytown" src={`https://www.googletagmanager.com/gtm.js?id=${GTM}`}></script> -->
