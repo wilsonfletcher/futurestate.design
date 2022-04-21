@@ -1,5 +1,6 @@
 {
   "name": "Futurestate Design",
+  "start_url": "https://futurestatedesign.surge.sh/?standalone=true",
   "short_name": "futurestatedesign",
   "description": "How to step out of the past to create a business fit for the future",
   "icons": [
@@ -46,7 +47,6 @@
       "purpose": "any maskable"
     }
   ],
-  "start_url": "/?standalone=true",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#fbd400",

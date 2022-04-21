@@ -1,7 +1,7 @@
 export default {
   title: `Futurestate Design`,
   description: `This is an example blog made with Astro.`,
-  url: `https://futurestatedesign.surge.sh`, // No trailing slash!
+  url: import.meta.env.PUBLIC_BASE_URL ?? '', // No trailing slash!
   // JSON LD
   name: `Example`,
   // Facebook URL

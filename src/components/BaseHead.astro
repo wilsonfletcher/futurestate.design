@@ -45,6 +45,11 @@ const { title, description, permalink, publishDate, ogImageUrl, canonicalURL, bo
 <meta property="twitter:description" content={description || site.description} />
 <meta property="twitter:image" content={ogImageUrl ? `${site.url}${ogImageUrl}` : `${site.url}/assets/img/social.jpg`} />
 
+<meta
+name="robots"
+content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+/>
+
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
