@@ -1,0 +1,35 @@
+---
+import Container from '@components/Container.vue'
+import H3 from '@components/h3.vue'
+import Article from '@components/Article.vue'
+
+const articles = await Astro.glob('../content/articles/**/index.md')
+
+const path = Astro.site.pathname;
+
+const name = 'Read on'
+const id = 'read-on'
+---
+
+<section class="bg-grey-light py-12 lg:py-24" aria-labelledby={id}>
+  <Container>
+    <h1>Welcome to {path}</h1>
+    <H3 as="h2" {id} class="mb-5">{name}</H3>
+    <div class="grid gap-5 md:grid-cols-3 lg:gap-14">
+      {articles.slice(0, 3).map((article) => {
+        const { frontmatter } = article
+        const { name, description, url, image } = frontmatter
+        return (
+          <Article
+            {name}
+            {description}
+            {url}
+            {image}
+          />
+        )
+      }
+      )}
+    </div>
+    <pre>{JSON.stringify(articles, null, 2)}</pre>
+  </Container>
+</section>

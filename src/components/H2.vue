@@ -1,11 +1,13 @@
-<template lang="pug">
-component(:is='as' class='font-extrabold text-[40px] leading-tight lg:text-6xl')
-  slot
+<template>
+  <component
+    v-bind:is="as"
+    class="font-extrabold text-[40px] leading-tight lg:text-6xl">
+    <slot />
+  </component>
 </template>
 
 <script>
 export default {
-  name: 'H2Component',
   props: {
     as: {
       type: String,

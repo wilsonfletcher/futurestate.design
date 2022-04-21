@@ -22,6 +22,7 @@ const { name = 'Futurestate Design', description } = Astro.props;
           </H1>
       )}
       {description && <H4 as="p" class="max-w-md">{description}</H4>}
+        <slot />
       </div>
     </div>
   </div>

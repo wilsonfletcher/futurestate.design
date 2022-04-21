@@ -1,11 +1,13 @@
-<template lang="pug">
-component(:is='as' class='font-extrabold text-[32px] leading-semi-tight lg:text-5xl')
-  slot
+<template>
+  <component
+    v-bind:is="as"
+    class="font-extrabold text-[32px] leading-semi-tight lg:text-5xl">
+    <slot />
+  </component>
 </template>
 
 <script>
 export default {
-  name: 'H3Component',
   props: {
     as: {
       type: String,

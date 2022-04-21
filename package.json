@@ -6,7 +6,9 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "format": "yarn prettier -w .",
+    "surge": "surge -p dist -d futurestatedesign.surge.sh"
   },
   "devDependencies": {
     "@astrojs/vue": "^0.1.3",

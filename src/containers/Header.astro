@@ -1,0 +1,32 @@
+---
+import Container from '@components/Container.vue'
+import Logo from '@components/Logo.astro'
+import NavPrimary from '@components/Nav/Primary.vue'
+
+const nav = {
+  name: 'Primary',
+  items: [
+    {
+      name: 'Book',
+      url: '/',
+    },
+    {
+      name: 'Workshops',
+      url: '/workshops',
+    },
+  ],
+}
+---
+
+<div
+  role="banner"
+  class="flex-none py-10 lg:py-14 absolute top-0 left-0 right-0 z-10">
+  <Container>
+    <div class="flex items-center justify-between">
+      <a href="/" rel="home">
+        <Logo class="text-white" />
+      </a>
+      {nav && <NavPrimary {nav} />}
+    </div>
+  </Container>
+</div>

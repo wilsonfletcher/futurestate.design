@@ -1,5 +1,5 @@
-const plugin = require('tailwindcss/plugin');
-const defaultTheme = require('tailwindcss/defaultTheme');
+const plugin = require('tailwindcss/plugin')
+const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
   content: [
@@ -174,13 +174,13 @@ module.exports = {
             paddingRight: '2.5rem',
           },
         },
-      });
+      })
 
       addUtilities({
         '.text-optimize': {
           textRendering: 'optimizeLegibility',
         },
-      });
+      })
     }),
     require('@tailwindcss/typography'),
     // require('@tailwindcss/forms'),
@@ -188,4 +188,4 @@ module.exports = {
     require('@tailwindcss/aspect-ratio'),
     // require('tw-elements/dist/plugin'),
   ],
-};
+}
