@@ -3,14 +3,18 @@ import Default from '@layouts/Default.astro'
 import { Hero } from '@components/index.astro'
 import Container from '@components/Container.vue'
 import BlockQuote from '@components/BlockQuote.vue'
+import SchemaEvent from '@components/SchemaEvent.jsx'
 import { Content as Workshops } from '../content/pages/workshops.md'
 
 const title = 'Futurestate workshops'
+const name = title
 const description = 'Start building a business fit for the future'
+const url = '/workshops'
 ---
-<Default {title} {description} canonicalURL="/workshops">
+<Default {title} {description} {url}>
+  <SchemaEvent slot="head" {name} {description} {url} />
   <article>
-    <Hero name={title} {description}  >
+    <Hero {name} {description}>
       <svg
         width="590"
         height="380"

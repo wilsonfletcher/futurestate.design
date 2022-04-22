@@ -9,13 +9,13 @@ import '@styles/global.css'
 
 import site from '../data/site.js'
 
-const { title, description, permalink, canonicalURL } = Astro.props
+const { title, description, url, image } = Astro.props
 const GTM = import.meta.env.PUBLIC_GTM
 ---
 
 <html lang={site.lang}>
   <head>
-    <BaseHead {title} {description} {permalink} {canonicalURL} />
+    <BaseHead {title} {description} {url} {image} />
     <slot name="head" />
   </head>
   <body>

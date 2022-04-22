@@ -1,18 +1,16 @@
 ---
-import BookSchema from "./BookSchema.jsx";
 import site from "../data/site.js";
 
 export interface Props {
-  title: string;
-  description: string;
-  permalink: string;
-  publishDate: string;
-  ogImageUrl: string;
-  canonicalURL?: string;
-  bookSchema?: boolean;
+  title?: string;
+  description?: string;
+  url?: string;
+  image?: {
+    url?: string
+  }
 }
 
-const { title = site.title, description, permalink, publishDate, ogImageUrl, canonicalURL, bookSchema } = Astro.props as Props;
+const { title = `${site.name} - ${site.description}`, description = site.description, url = site.url, image = {...site.image} } = Astro.props as Props;
 
 // const GTM = import.meta.env.PUBLIC_GTM;
 const GOOGLE_SITE_VERIFICATION = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION
@@ -20,26 +18,26 @@ const GOOGLE_SITE_VERIFICATION = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>{title || site.title}</title>
-<meta name="title" content={title || site.title}>
-<meta name="description" content={description || site.description}>
-{canonicalURL &&<link rel="canonical" href={`${site.url}${canonicalURL}`}>}
+<title>{title}</title>
+<meta name="title" content={title}>
+<meta name="description" content={description}>
+<!-- {canonicalURL &&<link rel="canonical" href={`${site.url}${canonicalURL}`}>} -->
 <meta property="og:site" content={site.title}>
 <meta property="og:type" content="website">
-<meta property="og:url" content={canonicalURL || site.url}>
-<meta property="og:title" content={title || site.title}>
-<meta property="og:description" content={description || site.description}>
-<meta property="og:image" content={ogImageUrl ? `${site.url}${ogImageUrl}` : `${site.url}/images/book-1.jpg`}>
+<meta property="og:title" content={title}>
+<meta property="og:description" content={description}>
+<meta property="og:url" content={url ? `${site.url}${url}` : site.url}>
+<meta property="og:image" content={image.url}>
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content={canonicalURL || site.url}>
-<meta property="twitter:title" content={title || site.title}>
-<meta property="twitter:description" content={description || site.description}>
-<meta property="twitter:image" content={ogImageUrl ? `${site.url}${ogImageUrl}` : `${site.url}/images/book-1.jpg`}>
-<meta name="apple-mobile-web-app-title" content={site.name}>
+<meta property="twitter:title" content={title}>
+<meta property="twitter:description" content={description}>
+<meta property="twitter:url" content={url ? `${site.url}${url}` : site.url}>
+<meta property="twitter:image" content={image.url}>
+<meta name="apple-mobile-web-app-title" content={site.title}>
 <meta name="theme-color" content="#fbd400">
 <meta name="google-site-verification" content={GOOGLE_SITE_VERIFICATION}>
 <link rel="sitemap" href="/sitemap.xml">
-<!-- <link rel="alternate" type="application/rss+xml" title={`${site.name} Blog`} href={`${site.url}/feed/blog.xml`}> -->
+<!-- <link rel="alternate" type="application/rss+xml" title={site.title} href={`${site.url}/feed/blog.xml`}> -->
 <link rel="icon" href="/favicon.svg">
 <link rel="shortcut icon" href="/icons/icon_64x64.c519b2.png">
 <link rel="apple-touch-icon" href="/icons/icon_512x512.c519b2.png" sizes="512x512">
@@ -57,4 +55,3 @@ onload="this.onload=null;this.rel='stylesheet'">
     rel="stylesheet"
     type="text/css">
 </noscript>
-{bookSchema && (<BookSchema title={title} description={description} permalink={permalink} publishDate={publishDate} ogImageUrl={ogImageUrl} />)}
