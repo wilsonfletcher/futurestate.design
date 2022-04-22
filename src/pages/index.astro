@@ -8,6 +8,7 @@ import Button from '@components/Button.vue'
 import H3 from '@components/H3.vue'
 import { Content as Home } from '../content/pages/home.md'
 import { Content as MarkWilson } from '../content/people/mark-wilson.md'
+import BookSchema from '@components/BookSchema.jsx'
 
 const title = 'Futurestate Design'
 const description =
@@ -26,10 +27,10 @@ const reviews = await Astro.glob('../content/reviews/charles-king.md')
 const review = reviews[0]
 ---
 
-<Default {title} {description} permalink="/">
+<Default title={`${title} - ${description}`} description="This is a book to help you think differently about the future of your business." permalink="/">
+  <BookSchema slot="head" />
   <article>
-
-    <Hero {description}>
+    <Hero name={title} {description}>
       <Button as="span" type="secondary">Available 12th May</Button>
       <svg width="692" height="276" viewBox="0 0 692 276" xmlns="http://www.w3.org/2000/svg" class="lg:absolute lg:right-10 lg:top-[325px] max-w-full"><g fill="none" fill-rule="evenodd"><path fill="#FBD400" fill-rule="nonzero" d="M692.244 48.112h-36.821l-8.032 8.026 8.032 8.033h36.821zM616.648 48.112h-36.821v16.059h36.821l8.033-8.033zM644.062 36.758V-.07h-16.059v36.828l8.033 8.025zM628.003 75.526v36.821h16.059V75.526l-8.026-8.026zM628.003 36.757l-26.039-26.039-11.355 11.355 26.039 26.039h11.355z"></path><path fill="#FBD400" fill-rule="nonzero" d="M644.062 75.526l26.039 26.039 11.355-11.355-26.033-26.039h-11.361zM655.423 48.112l26.033-26.039-11.355-11.355-26.039 26.039v11.355zM616.648 64.171L590.609 90.21l11.355 11.355 26.039-26.039V64.171z"></path><path fill="#FFF" fill-rule="nonzero" d="M644.062 52.816v-4.704h-4.704l-3.322-3.329-3.329 3.329h-4.704v4.704l-3.322 3.322 3.322 3.329v4.704h4.704l3.329 3.329 3.322-3.329h4.704v-4.704l3.329-3.329zM530.171 33.817l31.77 22.838-31.77 22.832z"></path><path fill="#FBD400" fill-rule="nonzero" d="M30.11 242.824l30.109-30.11-30.109-30.109L0 212.714z"></path><path d="M30.11 226.903c7.84 0 14.194-6.355 14.194-14.194s-6.355-14.193-14.194-14.193c-7.838 0-14.193 6.354-14.193 14.193 0 7.839 6.354 14.194 14.193 14.194z" fill="#FFF" fill-rule="nonzero"></path><path stroke="#FFF" stroke-width="38" d="M157.86 76.509v134.225H76.448M196.58 35.867h92.333v104.111M288.913 216.15v40.982h122.972V56.652h118.286"></path><path fill="#FBD400" fill-rule="nonzero" d="M178.196 28.845h-13.31v13.309h13.31z"></path><path fill="#FFF" fill-rule="nonzero" d="M164.886 28.845h-13.309v13.309h13.309z"></path><path fill="#FBD400" fill-rule="nonzero" d="M178.196 15.535h-13.31v13.31h13.31zM151.577 42.154h-13.31v13.31h13.31zM164.886 42.154h-13.309v13.31h13.309zM178.196 42.154h-13.31v13.31h13.31z"></path><path fill="#FFF" fill-rule="nonzero" d="M306.784 167.923l-17.871-10.081v40.706l17.871-10.082z"></path><path fill="#FBD400" fill-rule="nonzero" d="M288.583 157.842l-18.534 10.18v20.353l18.534 10.173.33-.185v-40.33z"></path></g></svg>
     </Hero>

@@ -1,0 +1,16 @@
+---
+import Button from '@components/Button.vue'
+import Hero from '@components/Hero.astro'
+import Default from '@layouts/Default.astro'
+
+const title = 'Page not found'
+const description = 'Page not found description'
+---
+
+<Default {title} {description} canonicalURL="/404">
+  <article>
+    <Hero name={title} {description}>
+      <Button as="a" href="/" type="secondary">Homepage</Button>
+    </Hero>
+  </article>
+</Default>

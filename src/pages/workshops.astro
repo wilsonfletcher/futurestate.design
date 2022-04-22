@@ -8,10 +8,9 @@ import { Content as Workshops } from '../content/pages/workshops.md'
 const title = 'Futurestate workshops'
 const description = 'Start building a business fit for the future'
 ---
-
-<Default {title}>
+<Default {title} {description} canonicalURL="/workshops">
   <article>
-    <Hero name={title} {description}>
+    <Hero name={title} {description}  >
       <svg
         width="590"
         height="380"

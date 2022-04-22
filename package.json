@@ -9,8 +9,7 @@
     "preview": "astro preview",
     "format": "yarn prettier -w .",
     "prettier:check": "prettier --check --plugin-search-dir=. .",
-    "surge": "surge -p dist -d futurestatedesign.surge.sh",
-    "partytown": "partytown copylib public/~partytown"
+    "surge": "surge -p dist -d futurestatedesign.surge.sh"
   },
   "devDependencies": {
     "@astrojs/partytown": "^0.1.2",

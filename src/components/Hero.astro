@@ -7,21 +7,23 @@ export interface Props {
   description?: string;
 }
 
-const { name = 'Futurestate Design', description } = Astro.props;
+const { name, description, ...props } = {
+  ...Astro.props
+} as Props;
 ---
 
-<div class="bg-grey-dark text-white">
+<div class:list={['bg-grey-dark text-white']} {...props}>
   <div class="class='max-w-[90rem] mx-auto">
-    <div class="container relative lg:h-[760px] pt-[140px] lg:pt-[220px]">
+    <div class="container relative lg:h-[760px] pt-[var(--header-height-xs)] lg:pt-[var(--header-height-lg)]">
       <div class="space-y-8 lg:space-y-16 pb-8 lg:pb-16">
-      {name && (
-        <H1 class="max-w-[280px] lg:max-w-3xl">
-          <span class="bg-yellow text-grey-dark box-decoration-clone">
-            {name}
-          </span>
+        {name && (
+          <H1 class="max-w-[280px] lg:max-w-3xl">
+            <span class="bg-yellow text-grey-dark box-decoration-clone">
+              {name}
+            </span>
           </H1>
-      )}
-      {description && <H4 as="p" class="max-w-md">{description}</H4>}
+        )}
+        {description && <H4 as="p" class="max-w-md">{description}</H4>}
         <slot />
       </div>
     </div>

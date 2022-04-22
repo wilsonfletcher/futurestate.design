@@ -1,6 +1,6 @@
 import site from '../data/site.js'
 
-function ArticleSchema({
+function BookSchema({
   title,
   permalink,
   publishDate,
@@ -57,4 +57,4 @@ function ArticleSchema({
   )
 }
 
-export default ArticleSchema
+export default BookSchema

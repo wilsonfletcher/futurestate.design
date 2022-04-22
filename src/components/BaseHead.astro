@@ -1,4 +1,7 @@
 ---
+import BookSchema from "./BookSchema.jsx";
+import site from "../data/site.js";
+
 export interface Props {
   title: string;
   description: string;
@@ -9,25 +12,19 @@ export interface Props {
   bookSchema?: boolean;
 }
 
-import BookSchema from "./BookSchema.jsx";
-import site from "../data/site.js";
+const { title = site.title, description, permalink, publishDate, ogImageUrl, canonicalURL, bookSchema } = Astro.props as Props;
 
-const { title, description, permalink, publishDate, ogImageUrl, canonicalURL, bookSchema } = Astro.props;
 // const GTM = import.meta.env.PUBLIC_GTM;
 const GOOGLE_SITE_VERIFICATION = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION
 ---
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-
-<link rel="icon" href="/favicon.svg">
-<!-- <link rel="stylesheet" href="/style/global.css"/> -->
 <title>{title || site.title}</title>
 <meta name="title" content={title || site.title}>
 <meta name="description" content={description || site.description}>
-<link rel="sitemap" href="/sitemap.xml">
-<!-- <link rel="alternate" type="application/rss+xml" title={`${site.name} Blog`} href={`${site.url}/feed/blog.xml`}> -->
-<link rel="canonical" href={canonicalURL}>
+{canonicalURL &&<link rel="canonical" href={`${site.url}${canonicalURL}`}>}
+<meta property="og:site" content={site.title}>
 <meta property="og:type" content="website">
 <meta property="og:url" content={canonicalURL || site.url}>
 <meta property="og:title" content={title || site.title}>
@@ -38,10 +35,15 @@ const GOOGLE_SITE_VERIFICATION = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION
 <meta property="twitter:title" content={title || site.title}>
 <meta property="twitter:description" content={description || site.description}>
 <meta property="twitter:image" content={ogImageUrl ? `${site.url}${ogImageUrl}` : `${site.url}/images/book-1.jpg`}>
-<meta
-name="robots"
-content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
-/>
+<meta name="apple-mobile-web-app-title" content={site.name}>
+<meta name="theme-color" content="#fbd400">
+<meta name="google-site-verification" content={GOOGLE_SITE_VERIFICATION}>
+<link rel="sitemap" href="/sitemap.xml">
+<!-- <link rel="alternate" type="application/rss+xml" title={`${site.name} Blog`} href={`${site.url}/feed/blog.xml`}> -->
+<link rel="icon" href="/favicon.svg">
+<link rel="shortcut icon" href="/icons/icon_64x64.c519b2.png">
+<link rel="apple-touch-icon" href="/icons/icon_512x512.c519b2.png" sizes="512x512">
+<link rel="manifest" href="/manifest.json">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
@@ -55,12 +57,4 @@ onload="this.onload=null;this.rel='stylesheet'">
     rel="stylesheet"
     type="text/css">
 </noscript>
-
-<meta name="apple-mobile-web-app-title" content={site.name}>
-<meta name="theme-color" content="#fbd400">
-<link rel="shortcut icon" href="/icons/icon_64x64.c519b2.png">
-<link rel="apple-touch-icon" href="/icons/icon_512x512.c519b2.png" sizes="512x512">
-<link rel="manifest" href="/manifest.json">
-
-<meta name="google-site-verification" content={GOOGLE_SITE_VERIFICATION}>
 {bookSchema && (<BookSchema title={title} description={description} permalink={permalink} publishDate={publishDate} ogImageUrl={ogImageUrl} />)}

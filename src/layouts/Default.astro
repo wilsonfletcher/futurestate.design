@@ -16,15 +16,9 @@ const GTM = import.meta.env.PUBLIC_GTM
 <html lang={site.lang}>
   <head>
     <BaseHead {title} {description} {permalink} {canonicalURL} />
+    <slot name="head" />
   </head>
   <body>
-    <!-- <noscript
-      ><iframe
-        src={`https://www.googletagmanager.com/ns.html?id=${GTM}`}
-        height="0"
-        width="0"
-        style="display:none;visibility:hidden"></iframe></noscript
-    > -->
     <div class="flex flex-col min-h-screen w-screen">
       <Header />
       <main class="flex-auto"><slot /></main>
