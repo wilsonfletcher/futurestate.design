@@ -55,7 +55,12 @@ onload="this.onload=null;this.rel='stylesheet'">
     rel="stylesheet"
     type="text/css">
 </noscript>
+
 <meta name="apple-mobile-web-app-title" content={site.name}>
+<meta name="theme-color" content="#fbd400">
+<link rel="shortcut icon" href="/icons/icon_64x64.c519b2.png">
+<link rel="apple-touch-icon" href="/icons/icon_512x512.c519b2.png" sizes="512x512">
 <link rel="manifest" href="/manifest.json">
-<meta name="google-site-verification" content={GOOGLE_SITE_VERIFICATION} />
+
+<meta name="google-site-verification" content={GOOGLE_SITE_VERIFICATION}>
 {bookSchema && (<BookSchema title={title} description={description} permalink={permalink} publishDate={publishDate} ogImageUrl={ogImageUrl} />)}

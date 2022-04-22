@@ -32,7 +32,7 @@ CONGRATULATIONS, you found our humans.txt file!
   Language: English
   Doctype: HTML5
   Standards: HTML5, CSS3
-  Components: Nuxt JS, Tailwind CSS
+  Components: Astro, Tailwind CSS
 
 /* THANKS */
 
