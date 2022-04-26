@@ -1,4 +1,5 @@
 ---
+import site from '@data/site'
 import Default from '@layouts/Default.astro'
 import { Hero } from '@components/index.astro'
 import Container from '@components/Container.vue'
@@ -10,9 +11,22 @@ const title = 'Futurestate workshops'
 const name = title
 const description = 'Start building a business fit for the future'
 const url = '/workshops'
+
+const page = {
+  title,
+  name,
+  description,
+  url
+}
+
+const mainEntityOfPage = {
+  '@type': 'BusinessEvent',
+  '@id': `${site.url}/workshops#futurestate-workshops`
+}
 ---
-<Default {title} {description} {url}>
-  <SchemaEvent slot="head" {name} {description} {url} />
+
+<Default {...page} {mainEntityOfPage}>
+  <SchemaEvent slot="head" {...page} />
   <article>
     <Hero {name} {description}>
       <svg

@@ -1,5 +1,6 @@
 ---
 import site from "../data/site.js";
+import SchemaWebPage from './SchemaWebPage.tsx';
 
 export interface Props {
   title?: string;
@@ -8,34 +9,35 @@ export interface Props {
   image?: {
     url?: string
   }
+  schemaWebPage?: boolean,
+  mainEntityOfPage?: string
 }
 
-const { title = `${site.name} - ${site.description}`, description = site.description, url = site.url, image = {...site.image} } = Astro.props as Props;
+const { title = `${site.title}`, description, url, image = {...site.image}, schemaWebPage = true, mainEntityOfPage } = Astro.props as Props;
 
-// const GTM = import.meta.env.PUBLIC_GTM;
-const GOOGLE_SITE_VERIFICATION = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION
+const name = title
+
 ---
-
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>{title}</title>
 <meta name="title" content={title}>
 <meta name="description" content={description}>
 <!-- {canonicalURL &&<link rel="canonical" href={`${site.url}${canonicalURL}`}>} -->
-<meta property="og:site" content={site.title}>
+<meta property="og:site" content={site.name}>
 <meta property="og:type" content="website">
 <meta property="og:title" content={title}>
 <meta property="og:description" content={description}>
-<meta property="og:url" content={url ? `${site.url}${url}` : site.url}>
+<meta property="og:url" content={`${site.url}${url}`}>
 <meta property="og:image" content={image.url}>
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:title" content={title}>
 <meta property="twitter:description" content={description}>
-<meta property="twitter:url" content={url ? `${site.url}${url}` : site.url}>
+<meta property="twitter:url" content={`${site.url}${url}`}>
 <meta property="twitter:image" content={image.url}>
-<meta name="apple-mobile-web-app-title" content={site.title}>
+<meta name="apple-mobile-web-app-title" content={site.name}>
 <meta name="theme-color" content="#fbd400">
-<meta name="google-site-verification" content={GOOGLE_SITE_VERIFICATION}>
+<meta name="google-site-verification" content={site.googleSiteVerification}>
 <link rel="sitemap" href="/sitemap.xml">
 <!-- <link rel="alternate" type="application/rss+xml" title={site.title} href={`${site.url}/feed/blog.xml`}> -->
 <link rel="icon" href="/favicon.svg">
@@ -55,3 +57,8 @@ onload="this.onload=null;this.rel='stylesheet'">
     rel="stylesheet"
     type="text/css">
 </noscript>
+{schemaWebPage && (
+  <SchemaWebPage {name} {description} {url} {image} {mainEntityOfPage} />
+)}
+
+

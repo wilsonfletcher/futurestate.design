@@ -1,6 +1,7 @@
 ---
+import site from '@data/site'
 import Default from '@layouts/Default.astro'
-import ReadOn from '../containers/ReadOn.astro'
+import SchemaBook from '@components/SchemaBook.tsx'
 import { Hero } from '@components/index.astro'
 import Container from '@components/Container.vue'
 import BlockQuote from '@components/BlockQuote.vue'
@@ -8,9 +9,10 @@ import Button from '@components/Button.vue'
 import H3 from '@components/H3.vue'
 import { Content as Home } from '../content/pages/home.md'
 import { Content as MarkWilson } from '../content/people/mark-wilson.md'
-import SchemaBook from '@components/SchemaBook.jsx'
+import ReadOn from '../containers/ReadOn.astro'
 
 const title = 'Futurestate Design'
+
 const description = 'This is a book to help you think differently about the future of your business.'
 
 const images = [
@@ -24,10 +26,27 @@ const author = people[0]
 
 const reviews = await Astro.glob('../content/reviews/charles-king.md')
 const review = reviews[0]
+
+let articles = await Astro.glob('../content/articles/**/index.md')
+articles = articles.sort((a, b) => new Date(b.frontmatter.datePublished).valueOf() - new Date(a.frontmatter.datePublished).valueOf());
+
+const page = {
+  title: `${title} - How to step out of the past to create a business fit for the future`,
+  name: title,
+  description,
+  // url: '/wtf',
+  image: images[0]
+}
+
+const mainEntityOfPage = {
+  '@type': 'Book',
+  '@id': `${site.url}/#futurestate-design`
+}
+
 ---
 
-<Default title={`${title} - ${description}`} {description} permalink="/">
-  <SchemaBook slot="head" {title} {description} permalink="/" ogImageUrl={images[0].url} />
+<Default {...page} {mainEntityOfPage}>
+  <SchemaBook slot="head" {...page} />
   <article>
     <Hero name={title} description="How to step out of the past to create a business fit for the future">
       <Button as="span" type="secondary">Available 12th May</Button>
@@ -66,31 +85,33 @@ const review = reviews[0]
       </Container>
     </section>
 
-    <section aria-labelledby="reviews" class="py-12 lg:py-24 bg-grey-light text-black">
-      <Container>
-        <div class="grid gap-5 lg:grid-cols-12">
-          <div class="lg:col-span-3">
-            <H3 as="h2" id="reviews">Kind words</H3>
-          </div>
-          <div class="lg:col-start-5 lg:col-end-13">
-            <div class="c-blockquote">
-              <figure class="leading-tight lg:text-xl">
-                <blockquote class="mb-5">
-                  <p class="first-of-type::before:content-['open-quote']">
-                    {review.frontmatter.description}
-                  </p>
-                </blockquote>
-                <figcaption class="font-bold">
-                  {review.frontmatter.author.givenName} {review.frontmatter.author.familyName},
-                  {review.frontmatter.author.jobTitle},
-                  {review.frontmatter.author.worksFor.name}
-                </figcaption>
-              </figure>
+    {review && (
+      <section aria-labelledby="review" class="py-12 lg:py-24 bg-grey-light text-black">
+        <Container>
+          <div class="grid gap-5 lg:grid-cols-12">
+            <div class="lg:col-span-3">
+              <H3 as="h2" id="review">Kind words</H3>
+            </div>
+            <div class="lg:col-start-5 lg:col-end-13">
+              <div class="c-blockquote">
+                <figure class="leading-tight lg:text-xl">
+                  <blockquote class="mb-5">
+                    <p class="first-of-type::before:content-['open-quote']">
+                      {review.frontmatter.description}
+                    </p>
+                  </blockquote>
+                  <figcaption class="font-bold">
+                    {review.frontmatter.author.givenName} {review.frontmatter.author.familyName},
+                    {review.frontmatter.author.jobTitle},
+                    {review.frontmatter.author.worksFor.name}
+                  </figcaption>
+                </figure>
+              </div>
             </div>
           </div>
-        </div>
-      </Container>
-    </section>
+        </Container>
+      </section>
+    )}
 
     <section aria-labelledby="author" class="bg-white text-black py-12 lg:py-24">
       <Container>
@@ -115,6 +136,6 @@ const review = reviews[0]
       </Container>
     </section>
 
-    <ReadOn />
+    <ReadOn id="read-on" name="Read on" {articles} />
   </article>
 </Default>

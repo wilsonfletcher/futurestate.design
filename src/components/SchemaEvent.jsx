@@ -1,40 +1,18 @@
-import site, { image } from '@data/site'
+import site from '@data/site'
 import { wilsonFletcher } from '@data/organizations'
 import review from '@data/review'
 import { markWilson } from '@data/people'
 
 function SchemaEvent({ name, description, url }) {
-  const foo = `${site.url}${url}`
-
   const ldData = {
     '@context': 'https://schema.org',
     '@graph': [
       {
-        '@type': 'WebPage',
-        '@id': foo,
-        name,
-        description,
-        url: foo,
-        image: {
-          '@type': 'ImageObject',
-          url: image.url,
-          width: image.width,
-          height: image.height,
-          description: image.alt
-        },
-        mainEntity: `${foo}#futurestate-workshops`,
-        copyrightHolder: {
-          '@type': 'Organization',
-          ...wilsonFletcher
-        },
-        copyrightYear: 2022
-      },
-      {
         '@type': 'BusinessEvent',
-        '@id': `${foo}#futurestate-workshops`,
+        '@id': `${site.url}${url}#futurestate-workshops`,
         name,
         description,
-        url: foo,
+        url: `${site.url}${url}`,
         maximumAttendeeCapacity: 15,
         eventAttendanceMode: 'mix',
         performer: {

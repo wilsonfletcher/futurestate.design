@@ -1,9 +1,11 @@
-export const name = 'Futurestate Design'
+const name = 'Futurestate Design'
 
-export const description =
+const description =
   'How to step out of the past to create a business fit for the future'
 
-export const url = import.meta.env.PUBLIC_BASE_URL ?? '' // No trailing slash!
+const url = import.meta.env.PUBLIC_BASE_URL ?? '' // No trailing slash!
+const googleTagManager = import.meta.env.PUBLIC_GTM
+const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION
 
 export const image = {
   url: `${url}/images/book-1.jpg`,
@@ -13,11 +15,13 @@ export const image = {
 }
 
 export default {
+  title: `${name} - ${description}`,
   name,
-  title: name,
   description,
   url,
   image,
   instagramURL: `https://instagram.com/futurestatedesign`,
-  lang: 'en'
+  lang: 'en',
+  googleTagManager,
+  googleSiteVerification
 }

@@ -1,5 +1,28 @@
 ---
+import site from '@data/site'
+import Container from '@components/Container.vue'
+import { Hero } from '@components/index.astro'
 import Default from '@layouts/Default.astro'
+// import markWilson from '../content/people/mark-wilson.md'
+// import { Content as MarkWilson } from '../content/people/mark-wilson.md'
+// import SchemaWebPage from '../components/SchemaWebPage'
+
+const people = await Astro.glob('../content/people/mark-wilson.md')
+const name = 'Foo'
+
+const page = {
+  name: 'Foo',
+  description: 'Foo description',
+  url: '/foo',
+  image: {
+    url: `${site.url}/images/closeup.jpg`
+  }
+}
 ---
 
-<Default />
+<Default {...page} title="Foo">
+  <Hero {name} />
+  <Container>
+    <pre>{JSON.stringify(people, null, 2)}</pre>
+  </Container>
+</Default>

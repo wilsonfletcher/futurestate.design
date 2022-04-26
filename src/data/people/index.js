@@ -1,4 +1,5 @@
 import site from '@data/site'
+import { wilsonFletcher } from '@data/organizations'
 
 export const markWilson = {
   '@id': `${site.url}/#mark-wilson`,
@@ -14,7 +15,7 @@ export const markWilson = {
     'Mark Wilson is CEO at Wilson Fletcher, a London-based business innovation consultancy.',
   image: {
     '@type': 'ImageObject',
-    url: `${site.url}}/images/mark-wilson.jpg`,
+    url: `${site.url}/images/mark-wilson.jpg`,
     width: 285,
     height: 285,
     description: 'Photo of Mark Wilson'
@@ -39,7 +40,7 @@ export const ellaBowman = {
   givenName: 'Ella',
   familyName: 'Bowman',
   jobTitle: 'Senior Content Strategist',
-  image: `${global.siteUrl}/images/ella-bowman.jpg`,
+  image: `${site.url}/images/ella-bowman.jpg`,
   sameAs: ['https://www.linkedin.com/in/ellabowman/'],
   worksFor: {
     '@type': 'Organization',

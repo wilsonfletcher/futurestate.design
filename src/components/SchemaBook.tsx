@@ -2,10 +2,17 @@ import site from '../data/site.js'
 import { wilsonFletcher } from '../data/organizations'
 import { markWilson, stephanieFletcher } from '@data/people'
 
-function SchemaBook({ title, permalink, ogImageUrl, description }) {
+export interface Props {
+  name: string;
+  description: string;
+  url?: string;
+}
+
+export default function SchemaBook({ name, description, url = site.url }) {
   const ldData = {
     '@context': 'https://schema.org',
     '@type': 'Book',
+    '@id': `${site.url}/#futurestate-design`,
     about: {
       '@type': 'Thing',
       description
@@ -43,14 +50,14 @@ function SchemaBook({ title, permalink, ogImageUrl, description }) {
     inLanguage: 'en',
     isbn: '978-1-3999-2210-4',
     isFamilyFriendly: true,
-    name: 'Futurestate design',
+    name,
     numberOfPages: 128,
     sameAs: [
-      // 'https://amazon.co.uk',
+      'https://amazon.co.uk',
       'https://wilsonfletcher.com/futurestate-design'
     ],
     size: 'Height 18cm',
-    url: site.url,
+    url,
     author: {
       '@type': 'Person',
       ...markWilson
@@ -68,32 +75,12 @@ function SchemaBook({ title, permalink, ogImageUrl, description }) {
     publisher: {
       '@type': 'Organization',
       ...wilsonFletcher
-    },
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': site.url,
-      name: title,
-      description,
-      url: permalink,
-      image: {
-        '@type': 'ImageObject',
-        url: ogImageUrl
-      },
-      copyrightHolder: {
-        '@type': 'Organization',
-        '@id': wilsonFletcher['@id']
-      },
-      copyrightYear: 2022,
     }
   }
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(ldData, null, 2) }}
-      />
-    </>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(ldData, null, 2) }}
+    />
   )
 }
-
-export default SchemaBook

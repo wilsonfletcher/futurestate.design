@@ -9,20 +9,20 @@ import '@styles/global.css'
 
 import site from '../data/site.js'
 
-const { title, description, url, image } = Astro.props
-const GTM = import.meta.env.PUBLIC_GTM
+const { title, description, url, image, schemaWebPage, mainEntityOfPage } = Astro.props
+
 ---
 
 <html lang={site.lang}>
   <head>
-    <BaseHead {title} {description} {url} {image} />
+    <BaseHead {title} {description} {url} {image} {schemaWebPage} {mainEntityOfPage} />
     <slot name="head" />
   </head>
   <body>
     <div class="flex flex-col min-h-screen w-screen">
       <Header />
       <main class="flex-auto"><slot /></main>
-      <aside>
+      <aside class="flex-none">
         <img
           src="/images/closeup.jpg"
           class="w-full"
