@@ -8,7 +8,7 @@ export interface Props {
   image?: {
     url: string
   }
-  mainEntityOfPage: object
+  mainEntity: object
 }
 
 export default function SchemaWebPage({
@@ -16,7 +16,7 @@ export default function SchemaWebPage({
   description = site.description,
   url = '/',
   image = site.image,
-  mainEntityOfPage
+  mainEntity
 }) {
   const ldData = {
     '@context': 'https://schema.org',
@@ -31,7 +31,7 @@ export default function SchemaWebPage({
           '@type': 'ImageObject',
           url: image.url
         },
-        mainEntityOfPage,
+        mainEntity,
         copyrightHolder: {
           '@type': 'Organization',
           ...wilsonFletcher

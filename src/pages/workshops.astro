@@ -19,13 +19,13 @@ const page = {
   url
 }
 
-const mainEntityOfPage = {
+const mainEntity = {
   '@type': 'BusinessEvent',
   '@id': `${site.url}/workshops#futurestate-workshops`
 }
 ---
 
-<Default {...page} {mainEntityOfPage}>
+<Default {...page} {mainEntity}>
   <SchemaEvent slot="head" {...page} />
   <article>
     <Hero {name} {description}>

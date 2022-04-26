@@ -9,13 +9,13 @@ import '@styles/global.css'
 
 import site from '../data/site.js'
 
-const { title, description, url, image, schemaWebPage, mainEntityOfPage } = Astro.props
+const { title, description, url, image, schemaWebPage, mainEntity } = Astro.props
 
 ---
 
 <html lang={site.lang}>
   <head>
-    <BaseHead {title} {description} {url} {image} {schemaWebPage} {mainEntityOfPage} />
+    <BaseHead {title} {description} {url} {image} {schemaWebPage} {mainEntity} />
     <slot name="head" />
   </head>
   <body>

@@ -1,0 +1,15 @@
+---
+export interface Props {
+  givenName: string
+}
+
+const { givenName } = Astro.props as Props
+
+const ldData = {
+  '@type': 'Person',
+  givenName
+}
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(ldData, null, 2)}
+></script>

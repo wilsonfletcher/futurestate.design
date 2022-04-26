@@ -38,14 +38,14 @@ const page = {
   image: images[0]
 }
 
-const mainEntityOfPage = {
+const mainEntity = {
   '@type': 'Book',
   '@id': `${site.url}/#futurestate-design`
 }
 
 ---
 
-<Default {...page} {mainEntityOfPage}>
+<Default {...page} {mainEntity}>
   <SchemaBook slot="head" {...page} />
   <article>
     <Hero name={title} description="How to step out of the past to create a business fit for the future">

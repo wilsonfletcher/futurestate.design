@@ -10,10 +10,10 @@ export interface Props {
     url?: string
   }
   schemaWebPage?: boolean,
-  mainEntityOfPage?: string
+  mainEntity?: object
 }
 
-const { title = `${site.title}`, description, url, image = {...site.image}, schemaWebPage = true, mainEntityOfPage } = Astro.props as Props;
+const { title = `${site.title}`, description, url, image = {...site.image}, schemaWebPage = true, mainEntity } = Astro.props as Props;
 
 const name = title
 
@@ -58,7 +58,7 @@ onload="this.onload=null;this.rel='stylesheet'">
     type="text/css">
 </noscript>
 {schemaWebPage && (
-  <SchemaWebPage {name} {description} {url} {image} {mainEntityOfPage} />
+  <SchemaWebPage {name} {description} {url} {image} {mainEntity} />
 )}
 
 
