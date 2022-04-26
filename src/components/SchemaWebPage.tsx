@@ -19,21 +19,26 @@ export default function SchemaWebPage({
   mainEntityOfPage
 }) {
   const ldData = {
-    '@type': 'WebPage',
-    '@id': `${site.url}${url}`,
-    name,
-    description,
-    url: `${site.url}${url}`,
-    image: {
-      '@type': 'ImageObject',
-      url: image.url
-    },
-    mainEntityOfPage,
-    copyrightHolder: {
-      '@type': 'Organization',
-      ...wilsonFletcher
-    },
-    copyrightYear: 2022
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebPage',
+        '@id': `${site.url}${url}`,
+        name,
+        description,
+        url: `${site.url}${url}`,
+        image: {
+          '@type': 'ImageObject',
+          url: image.url
+        },
+        mainEntityOfPage,
+        copyrightHolder: {
+          '@type': 'Organization',
+          ...wilsonFletcher
+        },
+        copyrightYear: 2022
+      }
+    ]
   }
   return (
     <>
