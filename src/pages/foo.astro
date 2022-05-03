@@ -21,8 +21,8 @@ const page = {
 }
 ---
 
-<Default {...page} title="Foo">
-  <SchemaPerson slot="head" givenName={markWilson.givenName} />
+<Default {...page} title="Foo" schemaWebPage={false}>
+  <SchemaPerson slot="head" {...markWilson} />
   <Hero {name} />
   <Container>
     <pre>{JSON.stringify(people, null, 2)}</pre>

@@ -1,13 +1,17 @@
 ---
 export interface Props {
+  id: string
   givenName: string
+  familyName: string
 }
 
-const { givenName } = Astro.props as Props
+const { id, givenName, familyName } = Astro.props as Props
 
 const ldData = {
   '@type': 'Person',
-  givenName
+  '@id': id,
+  givenName,
+  familyName
 }
 ---
 

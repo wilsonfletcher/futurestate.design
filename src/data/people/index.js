@@ -3,6 +3,7 @@ import { wilsonFletcher } from '@data/organizations'
 
 export const markWilson = {
   '@id': `${site.url}/#mark-wilson`,
+  id: `${site.url}/#mark-wilson`,
   givenName: 'Mark',
   familyName: 'Wilson',
   jobTitle: 'Managing Partner & CEO',
