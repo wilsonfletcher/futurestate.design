@@ -27,7 +27,7 @@ export default {
       const classes = []
 
       if (this.type === 'primary') {
-        classes.push('border-black text-black')
+        classes.push('text-black border-black ')
       } else if (this.type === 'secondary') {
         classes.push('text-white border-current')
       }
@@ -38,4 +38,17 @@ export default {
 }
 </script>
 
-<style></style>
+<style lang="postcss">
+.button[aria-current='page'] {
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -4px;
+    right: -4px;
+    left: -4px;
+    height: 4px;
+    background: #fff;
+  }
+}
+</style>
