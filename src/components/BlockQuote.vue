@@ -9,8 +9,8 @@
   </div>
 </template>
 
-<script>
-import H6 from '@components/H6.vue'
+<script lang="ts">
+import H6 from './H6.vue'
 
 export default {
   name: 'BlockQuote',

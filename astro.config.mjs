@@ -16,5 +16,8 @@ export default defineConfig({
     vue(),
     preact()
     // partytown()
-  ]
+  ],
+  markdown: {
+    drafts: true
+  }
 })

@@ -1,0 +1,35 @@
+---
+import Container from './Container.vue'
+
+interface Image {
+  url: string
+}
+
+interface Social {
+  name: string
+  description: string
+  url: string
+  image: Image
+}
+
+interface Frontmatter {
+  frontmatter: Social
+}
+
+interface Props {
+  id: string
+  name: string
+  socials: Frontmatter[]
+}
+
+const { id, name, socials } = Astro.props as Props
+---
+
+<section aria-labelledby={id}>
+  <Container>
+    <div>
+      <h2 {id}>{name}</h2>
+      <pre>{JSON.stringify(socials, null, 2)}</pre>
+    </div>
+  </Container>
+</section>

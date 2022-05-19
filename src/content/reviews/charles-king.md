@@ -5,6 +5,8 @@ author:
   givenName: Charles
   familyName: King
   jobTitle: Director of Digital Solutions
+  image:
+    url: /images/charles-king.jpg
   worksFor:
     name: Pacific Life Re
     url: https://www.pacificlifere.com/

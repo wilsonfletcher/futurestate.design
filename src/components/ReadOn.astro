@@ -3,10 +3,21 @@ import Container from '@components/Container.vue'
 import H3 from '@components/H3.vue'
 import Article from '@components/Article.vue'
 
-export interface Props {
+interface Article {
+  name: string
+  description: string
+  url: string
+  image: object
+}
+
+interface Frontmatter {
+  frontmatter: Article
+}
+
+interface Props {
   id: string
   name: string
-  articles: any
+  articles: Article[]
 }
 
 const { id, name, articles, ...props } = Astro.props
@@ -17,7 +28,7 @@ const { id, name, articles, ...props } = Astro.props
     <H3 as="h2" {id} class="mb-5">{name}</H3>
     {articles && (
       <div class="grid gap-5 md:grid-cols-3 lg:gap-14">
-        {articles.slice(0, 3).map((article) => {
+        {articles.slice(0, 3).map((article : Frontmatter) => {
           const { frontmatter } = article
           const { name, description, url, image } = frontmatter
           return (

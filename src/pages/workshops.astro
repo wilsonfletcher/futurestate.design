@@ -4,7 +4,7 @@ import Default from '@layouts/Default.astro'
 import { Hero } from '@components/index.astro'
 import Container from '@components/Container.vue'
 import BlockQuote from '@components/BlockQuote.vue'
-import SchemaEvent from '@components/SchemaEvent.jsx'
+import SchemaEvent from '@components/SchemaEvent.tsx'
 import { Content as Workshops } from '../content/pages/workshops.md'
 
 const title = 'Futurestate workshops'
@@ -52,11 +52,13 @@ const mainEntity = {
         <div class="grid gap-5 lg:grid-cols-12">
           <div class="lg:col-start-1 lg:col-end-7">
             <div
-              class="prose prose-black lg:prose-xl leading-tight lg:leading-tight mb-5 lg:mb-10">
+              class="prose prose-black lg:prose-xl leading-tight lg:leading-tight mb-5 lg:mb-10"
+            >
               <Workshops />
             </div>
             <h4
-              class="font-extrabold text-base leading-semi-tight md:text-4xl break-words">
+              class="font-extrabold text-base leading-semi-tight md:text-4xl break-words"
+            >
               <a href="mailto:workshops@wilsonfletcher.com"
                 >workshops@wilsonfletcher.com</a
               >

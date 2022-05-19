@@ -1,0 +1,30 @@
+---
+import site from '@data/site'
+import Container from '@components/Container.vue'
+import { Hero, Socials } from '@components/index.astro'
+import Default from '@layouts/Default.astro'
+
+interface Frontmatter {
+  name: string
+  url: string
+  image: {
+    url: string
+  }
+}
+
+let socials = await Astro.glob<Frontmatter>('../content/socials/*.md')
+
+const name = 'Socials'
+
+const page = {
+  name,
+  url: '/socials'
+}
+---
+
+<Default {...page} title={name} schemaWebPage={false}>
+  <Hero />
+  <!-- <pre>{JSON.stringify(socials, null, 2)}</pre>
+  {socials.map(social => <li>{social.frontmatter.name}</li>)} -->
+  <Socials name="Foo!" id="bar" {socials} />
+</Default>

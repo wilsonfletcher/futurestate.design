@@ -1,7 +1,7 @@
 import { wilsonFletcher } from '@data/organizations'
 import site from '@data/site'
 
-export interface Props {
+interface SchemaWebPageProps {
   name?: string
   description?: string
   url?: string
@@ -17,7 +17,7 @@ export default function SchemaWebPage({
   url = '/',
   image = site.image,
   mainEntity
-}) {
+}: SchemaWebPageProps) {
   const ldData = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -43,7 +43,7 @@ export default function SchemaWebPage({
   return (
     <>
       <script
-        type="application/ld+json"
+        type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(ldData, null, 2) }}
       />
     </>

@@ -1,14 +1,14 @@
-import site from '../data/site.js'
-import { wilsonFletcher } from '../data/organizations'
+import site from '@data/site'
+import { wilsonFletcher } from '@data/organizations'
 import { markWilson, stephanieFletcher } from '@data/people'
 
-export interface Props {
+interface SchemaBookProps {
   name: string
   description: string
   url?: string
 }
 
-export default function SchemaBook({ name, description, url = site.url }) {
+const SchemaBook = ({ name, description, url = site.url }: SchemaBookProps) => {
   const ldData = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -83,8 +83,10 @@ export default function SchemaBook({ name, description, url = site.url }) {
   }
   return (
     <script
-      type="application/ld+json"
+      type='application/ld+json'
       dangerouslySetInnerHTML={{ __html: JSON.stringify(ldData, null, 2) }}
     />
   )
 }
+
+export default SchemaBook

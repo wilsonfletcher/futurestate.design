@@ -1,7 +1,5 @@
 <template>
-  <component
-    v-bind:is="as"
-    class="font-bold text-base leading-tight lg:text-xl">
+  <component :is="as" class="font-bold text-base leading-tight lg:text-xl">
     <slot />
   </component>
 </template>

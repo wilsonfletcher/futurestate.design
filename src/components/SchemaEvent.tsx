@@ -3,7 +3,13 @@ import { wilsonFletcher } from '@data/organizations'
 import review from '@data/review'
 import { markWilson } from '@data/people'
 
-function SchemaEvent({ name, description, url }) {
+interface SchemaEventProps {
+  name: string
+  description: string
+  url: string
+}
+
+function SchemaEvent({ name, description, url }: SchemaEventProps) {
   const ldData = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -39,7 +45,7 @@ function SchemaEvent({ name, description, url }) {
   return (
     <>
       <script
-        type="application/ld+json"
+        type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(ldData, null, 2) }}
       />
     </>

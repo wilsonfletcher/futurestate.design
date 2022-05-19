@@ -1,8 +1,6 @@
 {
+  "jsxSingleQuote": true,
   "semi": false,
   "singleQuote": true,
-  "trailingComma": "none",
-  "bracketSameLine": true,
-  "proseWrap": "preserve",
-  "vueIndentScriptAndStyle": false
+  "trailingComma": "none"
 }

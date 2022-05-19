@@ -1,20 +1,26 @@
 ---
 import Container from '@components/Container.vue'
 import Logo from '@components/Logo.astro'
-import Nav from '@components/Nav.astro'
+import Nav from '@components/Nav/Primary.vue'
 
 const nav = {
-  id: 'primary',
   name: 'Primary',
   items: [
     {
       name: 'Book',
-      url: 'http://localhost:3000/',
+      title: 'Buy the book on Amazon',
+      url: '/',
     },
     {
       name: 'Workshops',
-      url: 'http://localhost:3000/workshops',
-    },
+      title: 'Buy the book on Amazon',
+      url: '/workshops',
+    },{
+      name: 'Buy',
+      title: 'Buy the book on Amazon',
+      url: 'https://www.amazon.co.uk/dp/1399922106',
+      external: true,
+    }
   ],
 }
 ---
@@ -27,7 +33,7 @@ const nav = {
       <a href="/" rel="home" aria-label="Return to the homepage">
         <Logo />
       </a>
-      {nav && <Nav {nav} />}
+      {nav && <Nav nav={nav} />}
     </div>
   </Container>
 </div>

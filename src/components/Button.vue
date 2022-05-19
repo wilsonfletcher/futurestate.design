@@ -1,5 +1,5 @@
 <template>
-  <component v-bind:is="as" class="button" :class="btnClass">
+  <component :is="as" class="button" :class="btnClass">
     <slot>{text}</slot>
   </component>
 </template>
@@ -14,8 +14,11 @@ export default {
     },
     type: {
       type: String,
-      values: ['primary', 'secondary']
-      // default: 'primary',
+      default: 'none',
+      validator: (value) => {
+        const validColor = ['primary', 'secondary', 'teritary', 'none']
+        return validColor.includes(value)
+      }
     },
     text: {
       type: String,
@@ -27,9 +30,11 @@ export default {
       const classes = []
 
       if (this.type === 'primary') {
-        classes.push('text-black border-black ')
+        classes.push('text-yellow border-current')
       } else if (this.type === 'secondary') {
         classes.push('text-white border-current')
+      } else if (this.type === 'tertiary') {
+        classes.push('text-black border-current')
       }
 
       return classes.join(' ')
