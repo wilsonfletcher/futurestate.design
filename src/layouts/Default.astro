@@ -1,16 +1,26 @@
 ---
+import site from '@data/site.js'
 import BaseHead from '../components/BaseHead.astro'
 import Header from '@components/Header.astro'
-import Container from '@components/Container.vue'
+import Container from '@components/Container.astro'
 import Button from '@components/Button.vue'
 import H3 from '@components/H3.vue'
-import Footer from '@components/Footer.vue'
+import Footer from '@components/Footer.astro'
 import '@styles/global.css'
 
-import site from '../data/site.js'
+interface Props {
+  title: string
+  description: string
+  url: string
+  image: {
+    url: string
+  }
+  schemaWebPage?: boolean
+  mainEntity?: object
+}
 
 const { title, description, url, image, schemaWebPage, mainEntity } =
-  Astro.props
+  Astro.props as Props
 ---
 
 <html lang={site.lang}>
@@ -57,7 +67,7 @@ const { title, description, url, image, schemaWebPage, mainEntity } =
           </Container>
         </div>
       </aside>
-      <Footer />
+      <Footer class="flex-none bg-black text-white" />
     </div>
   </body>
 </html>

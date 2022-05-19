@@ -2,8 +2,8 @@
 import site from '@data/site'
 import Default from '@layouts/Default.astro'
 import { Hero } from '@components/index.astro'
-import Container from '@components/Container.vue'
-import BlockQuote from '@components/BlockQuote.vue'
+import Container from '@components/Container.astro'
+import BlockQuote from '@components/BlockQuote.astro'
 import SchemaEvent from '@components/SchemaEvent.tsx'
 import { Content as Workshops } from '../content/pages/workshops.md'
 
@@ -52,7 +52,7 @@ const mainEntity = {
         <div class="grid gap-5 lg:grid-cols-12">
           <div class="lg:col-start-1 lg:col-end-7">
             <div
-              class="prose prose-black lg:prose-xl leading-tight lg:leading-tight mb-5 lg:mb-10"
+              class="prose lg:prose-xl leading-tight lg:leading-tight mb-5 lg:mb-10"
             >
               <Workshops />
             </div>

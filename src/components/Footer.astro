@@ -1,0 +1,19 @@
+---
+import Container from './Container.astro'
+
+const { ...props } = Astro.props
+---
+
+<div role="contentinfo" class="py-8" {...props}>
+  <Container>
+    <p>
+      Copyright &copy;
+      <a
+        href="https://wilsonfletcher.com/"
+        target="_blank"
+        class="hover:underline">Wilson Fletcher</a
+      >
+      2022. All rights reserved.
+    </p>
+  </Container>
+</div>

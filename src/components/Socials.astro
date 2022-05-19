@@ -1,5 +1,6 @@
 ---
-import Container from './Container.vue'
+import { Markdown } from 'astro/components'
+import Container from './Container.astro'
 
 interface Image {
   url: string
@@ -29,7 +30,17 @@ const { id, name, socials } = Astro.props as Props
   <Container>
     <div>
       <h2 {id}>{name}</h2>
+      <div class="grid gap-4 sm:grid-cols-2">
+        {socials.map((social) => (
+          <div>
+            <h3>{social.frontmatter.name}</h3>
+            <div class="prose" set:html={social.content}></div>
+          </div>
+        ))}
+      </div>
+
       <pre>{JSON.stringify(socials, null, 2)}</pre>
+
     </div>
   </Container>
 </section>

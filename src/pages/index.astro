@@ -4,8 +4,8 @@ import site from '@data/site'
 import Default from '@layouts/Default.astro'
 import SchemaBook from '@components/SchemaBook.tsx'
 import { Hero } from '@components/index.astro'
-import Container from '@components/Container.vue'
-import BlockQuote from '@components/BlockQuote.vue'
+import Container from '@components/Container.astro'
+import BlockQuote from '@components/BlockQuote.astro'
 import Button from '@components/Button.vue'
 import H3 from '@components/H3.vue'
 import ReadOn from '@components/ReadOn.astro'
@@ -27,7 +27,7 @@ const author = people[0]
 
 const reviews = await Astro.glob('../content/reviews/*.md')
 
-const socials = await Astro.glob('../content/socials/*.md')
+// const socials = await Astro.glob('../content/socials/*.md')
 
 let articles = await Astro.glob('../content/articles/**/index.md')
 articles = articles.sort((a, b) => new Date(b.frontmatter.datePublished).valueOf() - new Date(a.frontmatter.datePublished).valueOf());
@@ -64,7 +64,7 @@ const mainEntity = {
         <div class="grid gap-5 lg:grid-cols-12">
           <div class="lg:col-start-1 lg:col-end-7">
             <div
-              class="prose prose-black lg:prose-xl leading-tight lg:leading-tight">
+              class="prose lg:prose-xl leading-tight lg:leading-tight">
               <Home />
             </div>
           </div>
@@ -116,15 +116,18 @@ const mainEntity = {
                           {review.frontmatter.description}
                         </p>
                       </blockquote>
-                      <figcaption class="font-bold flex items-center gap-5">
+                      <figcaption class="flex items-center gap-5">
                         <div class="h-[70px] w-[70px] overflow-hidden rounded-full relative bg-yellow
                         ">
                           <img src={review.frontmatter.author.image.url} alt="" class="absolute top-0 right-0 bottom-0 left-0 object-cover object-center" />
                         </div>
-                        {review.frontmatter.author.givenName} {review.frontmatter.author.familyName},
-                        <br />
-                        {review.frontmatter.author.jobTitle}, {review.frontmatter.author.worksFor.name}
-                      </figcaption>
+                        <div class="grow">
+                          <div class="font-bold">
+                            {review.frontmatter.author.givenName} {review.frontmatter.author.familyName},
+                          </div>
+                          {review.frontmatter.author.jobTitle}, {review.frontmatter.author.worksFor.name}
+                        </div>
+                     </figcaption>
                     </figure>
                   </div>
                 ))}
@@ -150,24 +153,11 @@ const mainEntity = {
           </div>
           <div class="order-1 lg:order-2 lg:col-start-5 lg:col-end-13">
             <H3 as="h2" id="author" class="mb-6">About the author</H3>
-            <div class="prose prose-black lg:prose-xl leading-tight lg:leading-tight">
+            <div class="prose lg:prose-xl leading-tight lg:leading-tight">
               <MarkWilson />
             </div>
           </div>
         </div>
-      </Container>
-    </section>
-
-    <section class="py-12 lg:py-24">
-      <Container>
-        <H3 as="h2">Socials</H3>
-        {socials.map((social) => (
-          <div>
-              <Markdown>
-                {social}
-              </Markdown>
-          </div>
-        ))}
       </Container>
     </section>
 

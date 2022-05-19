@@ -116,7 +116,7 @@ module.exports = {
             }
           }
         },
-        black: {
+        gray: {
           css: {
             '--tw-prose-body': theme('colors.black'),
             '--tw-prose-headings': '#2e2d2c',
@@ -128,7 +128,7 @@ module.exports = {
             // '--tw-prose-hr': theme('colors.pink[300]'),
             '--tw-prose-quotes': theme('colors.black'),
             '--tw-prose-quote-borders': theme('colors.black'),
-            '--tw-prose-captions': theme('colors.black'),
+            '--tw-prose-captions': theme('colors.current'),
             // '--tw-prose-code': theme('colors.pink[900]'),
             // '--tw-prose-pre-code': theme('colors.pink[100]'),
             // '--tw-prose-pre-bg': theme('colors.pink[900]'),
