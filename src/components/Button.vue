@@ -46,6 +46,7 @@ export default {
 <style lang="postcss">
 .button[aria-current='page'] {
   &::after {
+    @apply bg-white;
     content: '';
     display: block;
     position: absolute;
@@ -53,7 +54,6 @@ export default {
     right: -4px;
     left: -4px;
     height: 4px;
-    background: #fff;
   }
 }
 </style>
