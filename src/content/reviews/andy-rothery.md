@@ -12,3 +12,5 @@ author:
   image:
     url: /images/andy-rothery.jpg
 ---
+
+I read a lot and occasionally pick up a few real nuggets of insight. This book is full-to-the-brim with them. What a great read
