@@ -15,6 +15,7 @@ module.exports = {
       white: '#fff',
       yellow: '#fbd400',
       grey: {
+        DEFAULT: '#2e2d2c',
         dark: '#2e2d2c',
         light: '#ecedef'
       }
@@ -118,16 +119,16 @@ module.exports = {
         },
         gray: {
           css: {
-            '--tw-prose-body': theme('colors.black'),
+            '--tw-prose-body': theme('colors.current'),
             '--tw-prose-headings': '#2e2d2c',
-            '--tw-prose-lead': theme('colors.black'),
-            '--tw-prose-links': theme('colors.black'),
-            '--tw-prose-bold': theme('colors.black'),
+            '--tw-prose-lead': theme('colors.current'),
+            '--tw-prose-links': theme('colors.current'),
+            '--tw-prose-bold': theme('colors.current'),
             // '--tw-prose-counters': theme('colors.pink[600]'),
             // '--tw-prose-bullets': theme('colors.pink[400]'),
             // '--tw-prose-hr': theme('colors.pink[300]'),
-            '--tw-prose-quotes': theme('colors.black'),
-            '--tw-prose-quote-borders': theme('colors.black'),
+            '--tw-prose-quotes': theme('colors.current'),
+            '--tw-prose-quote-borders': theme('colors.current'),
             '--tw-prose-captions': theme('colors.current'),
             // '--tw-prose-code': theme('colors.pink[900]'),
             // '--tw-prose-pre-code': theme('colors.pink[100]'),

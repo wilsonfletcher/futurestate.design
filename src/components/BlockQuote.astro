@@ -1,14 +1,13 @@
 ---
 import H6 from './H6.vue'
 
-interface Props {
-  name: string
+export interface BlockQuoteProps {
+  name?: string
   description: string
 }
 
-const { name, description } = Astro.props
+const { name, description } = Astro.props as BlockQuoteProps
 ---
-
 <div class="prose lg:prose-xl">
   <figure>
     <blockquote>

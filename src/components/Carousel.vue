@@ -1,8 +1,9 @@
 <template>
   <Carousel>
     <Slide v-for="item in items" :key="item.slug" :itemsToShow="2.95">
-      <div class="carousel__item relative">
+      <div class="carousel__item">
         <img :src="item.frontmatter.image.url" alt="" class="w-full mb-3" />
+        {{ item.frontmatter.description }}
         <h3>{{ item.frontmatter.name }}</h3>
         <p><a :href="item.frontmatter.url" class="before:content-['']" target=" _blank"
             rel="external noreferrer noopener">View post</a></p>
@@ -37,10 +38,8 @@ export default defineComponent({
 
 <style lang="postcss">
 .carousel__slide {
-  @apply items-start justify-start;
-
   .carousel__item {
-    @apply bg-white p-5 w-[300px] opacity-50 scale-100 duration-500 min-h-[200px] text-left;
+    @apply bg-white p-5 opacity-50 scale-100 duration-500 min-h-[200px] text-left relative;
   }
 
   &--visible {

@@ -11,8 +11,6 @@
     "isolatedModules": true,
     // Add type definitions for our Vite runtime.
     "types": ["vite/client"],
-    "jsx": "preserve",
-    "allowJs": true,
     "baseUrl": ".",
     "paths": {
       "@components/*": ["src/components/*"],
@@ -21,6 +19,7 @@
       "@data/*": ["src/data/*"],
       "@layouts/*": ["src/layouts/*"],
       "@styles/*": ["src/styles/*"]
-    }
+    },
+    "jsx": "preserve"
   }
 }

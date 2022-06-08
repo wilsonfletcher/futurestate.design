@@ -1,5 +1,3 @@
-@import './button.css';
-
 @layer components {
   .c-url {
     @apply decoration-transparent transition-[color,_text-decoration] duration-300;

@@ -8,7 +8,8 @@ interface SchemaBookProps {
   url?: string
 }
 
-const SchemaBook = ({ name, description, url = site.url }: SchemaBookProps) => {
+const SchemaBook = function <T extends {}>(props: SchemaBookProps<T>) {
+  const { name, description, url = site.url } = props
   const ldData = {
     '@context': 'https://schema.org',
     '@graph': [

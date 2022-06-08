@@ -2,26 +2,22 @@
 import H1 from '@components/H1.vue';
 import H4 from '@components/H4.vue';
 
-interface Props {
+export interface HeroInterface {
   name?: string;
   description?: string;
 }
 
 const { name, description, ...props } = {
   ...Astro.props
-} as Props;
+} as HeroInterface;
 ---
 
-<div class:list={['bg-grey-dark text-white']} {...props}>
+<div class:list={['bg-yellow text-black']} {...props}>
   <div class="class='max-w-[90rem] mx-auto">
-    <div class="container relative lg:h-[760px] pt-[var(--header-height-xs)] lg:pt-[var(--header-height-lg)]">
+    <div class="container relative lg:h-screen pt-[var(--header-height-xs)] lg:pt-[var(--header-height-lg)]">
       <div class="space-y-8 lg:space-y-16 pb-8 lg:pb-16">
         {name && (
-          <H1 class="max-w-[280px] lg:max-w-3xl">
-            <span class="bg-yellow text-grey-dark box-decoration-clone">
-              {name}
-            </span>
-          </H1>
+          <H1 class="max-w-[280px] lg:max-w-3xl">{name}</H1>
         )}
         {description && <H4 as="p" class="max-w-md">{description}</H4>}
         <slot />

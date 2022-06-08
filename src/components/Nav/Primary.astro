@@ -17,7 +17,7 @@ const { nav } = Astro.props
   <ul class="flex lg:gap-5">
     {nav.items.map((item : Item) => (
       <li>
-        <Button as="a" href={item.url} type={item.external && 'primary'} target={item.external && '_blank'} title={item.title}>{item.name}</Button>
+        <Button as="a" href={item.url} kind={item.external ? 'black' : 'transparent'} target={item.external && '_blank'} title={item.title}>{item.name}</Button>
       </li>
     ))}
   </ul>

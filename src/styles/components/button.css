@@ -1,9 +1,0 @@
-@layer components {
-  .button {
-    @apply relative inline-block appearance-none rounded-sm border-4 border-transparent py-2 px-3 font-bold leading-[32px] lg:px-7 lg:text-xl;
-
-    /* &[aria-current='page'] {
-      @apply after:absolute after:-bottom-1 after:-left-1 after:-right-1 after:h-1 after:bg-white after:content-[""];
-    } */
-  }
-}
