@@ -13,7 +13,9 @@ module.exports = {
       current: 'currentColor',
       black: '#0e0f0f',
       white: '#fff',
-      yellow: '#FBD400',
+      yellow: {
+        DEFAULT: 'hsl(51deg 100% 49%)' // #FBD400
+      },
       red: '#B71B0B',
       grey: {
         DEFAULT: '#2e2d2c',
@@ -61,6 +63,11 @@ module.exports = {
         '1/4-20': 'calc(25% - 1.25rem)',
         '1/5-20': 'calc(20% - 1.25rem)',
         '1/6-20': 'calc(16.66666667% - 1.25rem)'
+      },
+      maxWidth: {
+        4: 420,
+        5: 520,
+        6: 620
       },
       typography: ({ theme }) => ({
         DEFAULT: {
@@ -194,4 +201,3 @@ module.exports = {
     // require('tw-elements/dist/plugin'),
   ]
 }
-

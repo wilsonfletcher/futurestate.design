@@ -1,33 +1,33 @@
 ---
-import H1 from '@components/H1.vue';
-import H4 from '@components/H4.vue';
+import H1 from '@components/H1.vue'
+import H4 from '@components/H4.vue'
 
 export interface HeroInterface extends Record<any, any> {
-  name?: string;
-  description?: string;
+  name: string
+  description: string
 }
 
 const { name, description, ...props } = {
   ...Astro.props
-} as HeroInterface;
-
+} as HeroInterface
 ---
 
-<div class:list={['bg-yellow text-black overflow-hidden', props.class]} data-fs-component="hero" {...props}>
+<div
+  class:list={['bg-yellow text-black overflow-hidden', props.class]}
+  data-fs-component="hero"
+  {...props}
+>
   <div class="container relative lg:min-h-[760px] pt-[156px]">
-    {name && (
-      <H1 class="max-w-[280px] lg:max-w-3xl">{name}</H1>
-    )}
-
-    <div class="space-y-[60px]">
-      {description && <H4 as="p" class="max-w-md">{description}</H4>}
+    <div class="space-y-12">
+      <H1 class="max-w-5">{name}</H1>
+      <H4 as="p" class="max-w-[440px]">{description}</H4>
       <slot />
     </div>
   </div>
 </div>
 
 <style lang="postcss">
-  [data-fs-component="hero"] {
+  [data-fs-component='hero'] {
     @apply relative;
   }
 </style>
