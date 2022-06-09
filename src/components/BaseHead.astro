@@ -1,6 +1,6 @@
 ---
-import site from "../data/site.js";
-import SchemaWebPage from './SchemaWebPage';
+import site from '@data/site'
+import SchemaWebPage from './SchemaWebPage'
 
 export interface Props {
   title?: string;
@@ -13,7 +13,7 @@ export interface Props {
   mainEntity?: object
 }
 
-const { title = `${site.title}`, description, url, image = {...site.image}, schemaWebPage = true, mainEntity } = Astro.props as Props;
+const { title = `${site.title}`, description, url = '/', image = {...site.image}, schemaWebPage = true, mainEntity } = Astro.props
 
 const name = title
 
@@ -23,7 +23,6 @@ const name = title
 <title>{title}</title>
 <meta name="title" content={title}>
 <meta name="description" content={description}>
-<!-- {canonicalURL &&<link rel="canonical" href={`${site.url}${canonicalURL}`}>} -->
 <meta property="og:site" content={site.name}>
 <meta property="og:type" content="website">
 <meta property="og:title" content={title}>
@@ -38,8 +37,6 @@ const name = title
 <meta name="apple-mobile-web-app-title" content={site.name}>
 <meta name="theme-color" content="#fbd400">
 <meta name="google-site-verification" content={site.googleSiteVerification}>
-<link rel="sitemap" href="/sitemap.xml">
-<!-- <link rel="alternate" type="application/rss+xml" title={site.title} href={`${site.url}/feed/blog.xml`}> -->
 <link rel="icon" href="/favicon.svg">
 <link rel="shortcut icon" href="/icons/icon_64x64.c519b2.png">
 <link rel="apple-touch-icon" href="/icons/icon_512x512.c519b2.png" sizes="512x512">
@@ -57,12 +54,12 @@ onload="this.onload=null;this.rel='stylesheet'">
     rel="stylesheet"
     type="text/css">
 </noscript>
-{schemaWebPage && (
-  <SchemaWebPage {name} {description} {url} {image} {mainEntity} />
-)}
 <script>
 (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-5N2GZXN');</script>
+{schemaWebPage && (
+  <SchemaWebPage {name} {description} {url} {image} {mainEntity} />
+)}
