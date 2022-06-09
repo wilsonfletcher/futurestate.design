@@ -4,7 +4,7 @@ import Default from '@layouts/Default.astro'
 import { Hero } from '@components/index.astro'
 import Container from '@components/Container.astro'
 import BlockQuote from '@components/BlockQuote.astro'
-import SchemaEvent from '@components/SchemaEvent.tsx'
+import SchemaEvent from '@components/SchemaEvent'
 import { Content as Workshops } from '../content/pages/workshops.md'
 
 const title = 'Futurestate workshops'
@@ -59,7 +59,9 @@ const mainEntity = {
             <h4
               class="font-extrabold text-base leading-semi-tight md:text-4xl break-words"
             >
-              <a href="mailto:workshops@wilsonfletcher.com"
+              <a
+                class="hover:underline"
+                href="mailto:workshops@wilsonfletcher.com"
                 >workshops@wilsonfletcher.com</a
               >
             </h4>

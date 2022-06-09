@@ -1,4 +1,6 @@
 ---
+name: Futurestate workshops
+description: Start building a business fit for the future
 ---
 
 ## Full-day intensive workshops for the whole team

@@ -1,3 +1,8 @@
+---
+name: Futurestate Design
+description: How to step out of the past to create a business fit for the future
+---
+
 ## This is a book to help you think differently about the future of your business.
 
 Most established businesses find it difficult to change – because the tools they use to think about their future unknowingly tie them to their past.
