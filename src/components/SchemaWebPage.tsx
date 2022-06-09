@@ -2,9 +2,9 @@ import { wilsonFletcher } from '@data/organizations'
 import site from '@data/site'
 
 interface SchemaWebPageProps {
-  name?: string
-  description?: string
-  url?: string
+  name: string
+  description: string
+  url: string
   image?: {
     url: string
   }
@@ -12,9 +12,9 @@ interface SchemaWebPageProps {
 }
 
 export default function SchemaWebPage({
-  name = site.name,
-  description = site.description,
-  url = '/',
+  name,
+  description,
+  url,
   image = site.image,
   mainEntity
 }: SchemaWebPageProps) {
