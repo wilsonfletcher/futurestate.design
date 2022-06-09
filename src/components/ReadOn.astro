@@ -12,26 +12,28 @@ interface Props {
 const { id, name, articles, ...props } = Astro.props
 ---
 
-<section aria-labelledby={id} class="bg-grey.light py-12 lg:py-24" {...props}>
+<section aria-labelledby={id} class="bg-grey-light py-14" {...props}>
   <Container>
-    <H3 as="h2" {id} class="mb-5">{name}</H3>
-    {articles && (
-      <div class="grid gap-5 md:grid-cols-3 lg:gap-14">
-        {articles.slice(0, 3).map((article) => {
-          const { frontmatter } = article
-          const { name, description, url, image, datePublished } = frontmatter
-          return (
-            <Article
-              {name}
-              {description}
-              {url}
-              {image}
-              {datePublished}
-            />
-          )
-        }
-        )}
-      </div>
-    )}
+    <div class="space-y-[80px]">
+      <H3 as="h2" {id} class="mb-5">{name}</H3>
+      {articles && (
+        <div class="grid gap-5 md:grid-cols-3 lg:gap-14">
+          {articles.slice(0, 3).map((article) => {
+            const { frontmatter } = article
+            const { name, description, url, image, datePublished } = frontmatter
+            return (
+              <Article
+                {name}
+                {description}
+                {url}
+                {image}
+                {datePublished}
+              />
+            )
+          }
+          )}
+        </div>
+      )}
+    </div>
   </Container>
 </section>

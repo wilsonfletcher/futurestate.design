@@ -26,7 +26,7 @@ export default defineComponent({
       type: String,
       default: 'Button'
     }
-  },
+  }
   // computed: {
   //   btnClass() {
   //     const classes = []
@@ -47,7 +47,7 @@ export default defineComponent({
 
 <style lang="postcss">
 .button {
-  @apply relative inline-block border-4 border-transparent py-2 px-3 lg:px-7 font-bold leading-[32px] text-base lg:text-xl transition-colors;
+  @apply relative inline-block border-4 rounded-sm border-transparent py-2 px-3 lg:px-7 font-bold leading-[32px] text-base lg:text-xl transition-colors;
 
   &[aria-current='page'] {
     &::after {

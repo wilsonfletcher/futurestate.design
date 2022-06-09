@@ -13,7 +13,8 @@ module.exports = {
       current: 'currentColor',
       black: '#0e0f0f',
       white: '#fff',
-      yellow: '#fbd400',
+      yellow: '#FBD400',
+      red: '#B71B0B',
       grey: {
         DEFAULT: '#2e2d2c',
         dark: '#2e2d2c',
@@ -40,6 +41,9 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Libre Franklin', ...defaultTheme.fontFamily.sans]
+      },
+      height: {
+        'header-height': 100
       },
       lineHeight: {
         'semi-tight': '1.3333'
@@ -119,7 +123,7 @@ module.exports = {
         },
         gray: {
           css: {
-            '--tw-prose-body': theme('colors.current'),
+            '--tw-prose-body': theme('colors.black'),
             '--tw-prose-headings': '#2e2d2c',
             '--tw-prose-lead': theme('colors.current'),
             '--tw-prose-links': theme('colors.current'),
@@ -170,9 +174,9 @@ module.exports = {
           paddingLeft: '1.25rem',
           paddingRight: '1.25rem',
           '@screen xl': {
-            maxWidth: 1260, // http://gridcalculator.dk/#/1220/12/20/20 / 80
-            paddingLeft: '2.5rem',
-            paddingRight: '2.5rem'
+            maxWidth: 1220, // http://gridcalculator.dk/#/1220/12/20/20 / 80
+            paddingLeft: '1.25rem',
+            paddingRight: '1.25rem'
           }
         }
       })
@@ -190,3 +194,4 @@ module.exports = {
     // require('tw-elements/dist/plugin'),
   ]
 }
+

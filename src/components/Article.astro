@@ -1,42 +1,22 @@
 ---
+import Body from '@components/Body.astro'
+import Url from './Url.astro'
+
 export interface ArticleInterface {
   name: string
-  description?: string
+  description: string
   url: string
-  image?: {
-    url: string
-    width: number
-    height: number
-    alt: string
-  },
-  datePublished: string
 }
 
-const { name, description, url, image, datePublished } = Astro.props as ArticleInterface
-
+const { name, description, url } = Astro.props as ArticleInterface
 ---
 
-<article class="flex flex-col space-y-4 relative">
-  <div class="aspect-w-16 aspect-h-9 bg-grey-dark">
-    {image && (
-      <img
-        class="object-fill object-center"
-        src={image.url}
-        width={image.width}
-        height={image.height}
-        alt={image.alt}
-        loading="lazy"
-      />
-    )}
-  </div>
-
-  <h3 class="font-bold text-2xl leading-tight">
-    <a class="c-url" href={url} target="_blank" rel="external">{name}</a>
+<article class="flex flex-col relative">
+  <h3 class="font-black text-2xl leading-tight mb-3">
+    <Url href={url} target="_blank" rel="external">{name}</Url>
   </h3>
 
-  <time class="sr-only" datetime={datePublished}>
-    {datePublished}
-  </time>
-
-  {description && <p class="line-clamp-2">{description}</p>}
+  <Body class="leading-[1.5] mt-auto">
+    <p>{description}</p>
+  </Body>
 </article>

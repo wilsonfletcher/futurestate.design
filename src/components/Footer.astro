@@ -4,7 +4,11 @@ import Container from './Container.astro'
 const { ...props } = Astro.props
 ---
 
-<div role="contentinfo" class="py-8" {...props}>
+<div
+  role="contentinfo"
+  class:list={['py-8 flex-none bg-black text-white']}
+  {...props}
+>
   <Container>
     <p>
       Copyright &copy;

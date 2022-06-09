@@ -5,8 +5,15 @@
         <img :src="item.frontmatter.image.url" alt="" class="w-full mb-3" />
         {{ item.frontmatter.description }}
         <h3>{{ item.frontmatter.name }}</h3>
-        <p><a :href="item.frontmatter.url" class="before:content-['']" target=" _blank"
-            rel="external noreferrer noopener">View post</a></p>
+        <p>
+          <a
+            :href="item.frontmatter.url"
+            class="before:content-['']"
+            target=" _blank"
+            rel="external noreferrer noopener"
+            >View post</a
+          >
+        </p>
       </div>
     </Slide>
     <template #addons>
@@ -58,7 +65,7 @@ export default defineComponent({
   transform: scale(0.9) translate(10px);
 } */
 
-.carousel__slide--active>.carousel__item {
+.carousel__slide--active > .carousel__item {
   transform: scale(1);
 }
 

@@ -1,13 +1,13 @@
 <template>
   <component
     :is="as"
-    class="font-black text-4xl leading-semi-tight lg:text-7xl"
+    class="font-black text-4xl leading-[1.2] lg:text-7xl mb-6"
   >
     <slot />
   </component>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   props: {
     as: {

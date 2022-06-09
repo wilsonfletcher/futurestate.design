@@ -1,13 +1,13 @@
 <template>
   <component
     :is="as"
-    class="font-extrabold text-[32px] leading-semi-tight lg:text-5xl"
+    class="font-extrabold text-[32px] leading-tight lg:text-5xl mb-6"
   >
     <slot />
   </component>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   name: 'H3Component',
   props: {
