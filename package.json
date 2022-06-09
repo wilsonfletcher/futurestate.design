@@ -7,6 +7,7 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "partytown": "partytown copylib public/~partytown",
     "check": "astro check",
     "format": "yarn prettier -w .",
     "lint": "eslint --ext .js,.astro src",
@@ -30,6 +31,7 @@
     "vue": "^3.2.37"
   },
   "dependencies": {
+    "@astrojs/partytown": "^0.1.4",
     "vue3-carousel": "^0.1.40"
   }
 }

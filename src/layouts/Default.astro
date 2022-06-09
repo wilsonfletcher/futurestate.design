@@ -19,7 +19,7 @@ interface Props {
   mainEntity?: object
 }
 
-const { title, description, url, image, schemaWebPage, mainEntity } =
+const { title, description, url = '/', image, schemaWebPage, mainEntity } =
   Astro.props as Props
 ---
 

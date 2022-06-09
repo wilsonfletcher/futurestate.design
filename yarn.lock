@@ -71,6 +71,14 @@
     locate-character "^2.0.5"
     magic-string "^0.25.9"
 
+"@astrojs/partytown@^0.1.4":
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/@astrojs/partytown/-/partytown-0.1.4.tgz#02e0c5e3d53280222c31f2ad67d72893c72c5777"
+  integrity sha512-6GBlUus9CZY/XCCQCEOB8vzMSmxen4CokT4EQU3JRpTv7z2AUF9tBhOW+B8pEuSfNEA/PrGuOxmGLh7Vr5s2wg==
+  dependencies:
+    "@builder.io/partytown" "^0.4.5"
+    mrmime "^1.0.0"
+
 "@astrojs/preact@^0.1.3":
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/@astrojs/preact/-/preact-0.1.3.tgz#dedf2d64f946aa38ae35040119baf73333db5da4"
@@ -353,6 +361,11 @@
   dependencies:
     "@babel/helper-validator-identifier" "^7.16.7"
     to-fast-properties "^2.0.0"
+
+"@builder.io/partytown@^0.4.5":
+  version "0.4.5"
+  resolved "https://registry.yarnpkg.com/@builder.io/partytown/-/partytown-0.4.5.tgz#3c85e25a7102336b7da4c71a46e77722da052e74"
+  integrity sha512-HcHlmMYSpOxfJ0lFVxgZrvgIjz1Q8knlGuWkBpvjIp68j+xVWg969+sn7BCfyKhcGaYlnVOY/CEBHapQBcl0jw==
 
 "@emmetio/abbreviation@^2.2.3":
   version "2.2.3"
