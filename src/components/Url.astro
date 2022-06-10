@@ -12,21 +12,3 @@ const { href, ...props } = Astro.props as Props
 <a {href} class:list={['c-url', props.class]} {...props}>
   <slot />
 </a>
-
-<style lang="postcss" is:global>
-  .c-url {
-    @apply decoration-transparent transition-[color,_text-decoration] duration-300;
-    @apply static !important;
-
-    &:focus,
-    &:hover,
-    &:active {
-      @apply underline decoration-current decoration-4;
-    }
-
-    &:after {
-      @apply absolute top-0 right-0 bottom-0 left-0 block content-[""];
-      @apply z-10 !important;
-    }
-  }
-</style>
