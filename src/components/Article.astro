@@ -1,14 +1,14 @@
 ---
 import Body from '@components/Body.astro'
-import Url from './Url.astro'
+import Url from '@components/Url.astro'
 
-export interface ArticleInterface {
+export interface Props {
   name: string
   description: string
   url: string
 }
 
-const { name, description, url } = Astro.props as ArticleInterface
+const { name, description, url } = Astro.props as Props
 ---
 
 <article class="flex flex-col relative">

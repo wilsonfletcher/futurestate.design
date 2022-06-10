@@ -18,9 +18,9 @@ const title = 'Futurestate Design'
 const description = 'This is a book to help you think differently about the future of your business.'
 
 const images = [
-  { id: 1, url: '/images/book-1.jpg' },
-  { id: 2, url: '/images/book-2.jpg' },
-  { id: 3, url: '/images/book-3.jpg' },
+  { id: 1, url: '/images/book-1.jpg', width: 1200, height: 640 },
+  { id: 2, url: '/images/book-2.jpg', width: 590, height: 393 },
+  { id: 3, url: '/images/book-3.jpg', width: 590, height: 393 },
 ]
 
 const people = await Astro.glob('../content/people/mark-wilson.md')
@@ -56,7 +56,7 @@ const mainEntity = {
   <article>
     <Hero name={title} description="How to step out of the past to create a business fit for the future">
       <Button as="a" href="https://www.amazon.co.uk/dp/1399922106" kind="black" target="_blank">Buy the book on Amazon</Button>
-      <img src="/images/book.png" alt="" loading="eager" class="lg:absolute lg:right-0 lg:bottom-6 lg:w-[636px]" />
+      <img src="/images/book.png" alt="Photo of book" width={773} height={678} loading="eager" class="lg:absolute lg:right-0 lg:bottom-6 lg:w-[636px]" />
     </Hero>
 
     <div class="mt-8">
@@ -93,13 +93,13 @@ const mainEntity = {
     </div>
 
     {images && (
-      <section aria-labelledby="gallery" class="pb-14">
+      <section aria-labelledby="gallery" class="mb-14">
         <Container>
           <h2 class="hidden" id="gallery">Gallery</h2>
           <div class="grid gap-2 md:gap-5 md:grid-cols-2">
             {images.map((image, index) => (
               <div class={`md:w-full ${index === 0 && 'md:col-span-2'}`}>
-                <img src={image.url} alt="" loading="lazy" class="w-full"/>
+                <img src={image.url} class="w-full" width={image.width} height={image.height} alt="" loading="lazy" />
               </div>
             ))}
           </div>
