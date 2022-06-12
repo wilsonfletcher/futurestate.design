@@ -3,20 +3,23 @@ import Body from '@components/Body.astro'
 import Url from '@components/Url.astro'
 
 export interface Props {
-  name: string
-  description: string
-  url: string
+  article: {
+    name: string
+    description: string
+    url: string
+  }
 }
 
-const { name, description, url } = Astro.props as Props
+const { article, ...props } = Astro.props
+const { name, description, url } = article
 ---
 
-<article class="flex flex-col relative">
-  <h3 class="font-black text-2xl leading-tight mb-3">
+<article data-component="article" class:list={['relative', props.class]}>
+  <h3 class="font-black text-2xl leading-tight mb-3 md:min-h-[90px]">
     <Url href={url} target="_blank" rel="external">{name}</Url>
   </h3>
 
-  <Body class="leading-[1.5] mt-auto">
+  <Body class="leading-[1.5]">
     <p>{description}</p>
   </Body>
 </article>

@@ -2,13 +2,13 @@ import site from '@data/site'
 import { wilsonFletcher } from '@data/organizations'
 import { markWilson, stephanieFletcher } from '@data/people'
 
-interface SchemaBookProps {
+export interface Props {
   name: string
   description: string
   url?: string
 }
 
-const SchemaBook = function <T extends {}>(props: SchemaBookProps<T>) {
+const SchemaBook = function (props: Props) {
   const { name, description, url = site.url } = props
   const ldData = {
     '@context': 'https://schema.org',

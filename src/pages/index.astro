@@ -8,13 +8,12 @@ import BlockQuote from '@components/BlockQuote.astro'
 import Button from '@components/Button.vue'
 import H3 from '@components/H3.vue'
 // import Carousel from '@components/Carousel.vue'
-import ReadOn from '@components/ReadOn.astro'
+import Articles from '@components/Articles.astro'
 import { Content as Home } from '../content/pages/home.md'
 import { Content as MarkWilson } from '../content/people/mark-wilson.md'
 import Promotion from '@components/Promotion.astro'
 
 const title = 'Futurestate Design'
-
 const description = 'This is a book to help you think differently about the future of your business.'
 
 const images = [
@@ -23,7 +22,7 @@ const images = [
   { id: 3, url: '/images/book-3.jpg', width: 590, height: 393 },
 ]
 
-const people = await Astro.glob('../content/people/mark-wilson.md')
+const people = await Astro.glob('../content/people/*.md')
 const author = people[0]
 
 const reviews = await Astro.glob('../content/reviews/*.md')
@@ -177,6 +176,6 @@ const mainEntity = {
       </>
     )} -->
 
-    {articles && <ReadOn id="read-on" name="Read on" {articles} />}
+    {articles && <Articles id="read-on" name="Read on" {articles} />}
   </article>
 </Default>

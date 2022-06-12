@@ -1,25 +1,19 @@
 ---
 import H3 from './H3.vue'
 import Url from './Url.astro'
-
-// export interface PromotionInterface extends Record<any, any> {
-//   name: string
-//   description: string
-//   url: string
-//   image: {
-//     url: string
-//   }
-// }
-
-// const { name, description, url } = Astro.props as PromotionInterface
 ---
 
 <article
-  class="flex flex-col gap-5 md:gap-10 md:flex-row md:items-center bg-[#000] text-white relative"
+  class="flex flex-col md:gap-10 md:flex-row md:items-center bg-[#000] text-white relative"
   data-component="promotion"
 >
-  <div class="md:w-[460px] h-[336px] flex-none">
-    <img src="/images/business-leader.png"  width="462" height="336" alt="Photo of Mark Wilson" />
+  <div class="md:w-[460px] md:h-[336px] flex-none">
+    <img
+      src="/images/business-leader.png"
+      width="462"
+      height="336"
+      alt="Photo of Mark Wilson"
+    />
   </div>
 
   <div class="p-5 md:flex-grow">
@@ -65,7 +59,7 @@ import Url from './Url.astro'
     }
 
     .podcast,
-    .podcast svg, {
+    .podcast svg {
       @apply duration-300 transition-colors;
     }
 
