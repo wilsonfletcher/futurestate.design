@@ -13,7 +13,7 @@ module.exports = {
       current: 'currentColor',
       black: '#0e0f0f',
       white: '#fff',
-      yellow: 'hsl(51deg 100% 49%)', // #FBD400
+      yellow: 'hsl(var(--color-primary) / <alpha-value>)',
       red: '#B71B0B',
       grey: {
         DEFAULT: '#2e2d2c',

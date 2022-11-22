@@ -1,0 +1,40 @@
+---
+import Plain from '@layouts/Plain.astro'
+
+const title = 'Get a free copy of Futurestate Design'
+const description = 'Get a free copy of Futurestate Design'
+const url = '/giveaway'
+
+const page = { title, description, url }
+---
+
+<Plain {...page}>
+  <article class='w-screen h-screen relative'>
+    <div class='pt-[156px] container'>
+      <div class='xl:w-1/2'>
+        <div class='xl:max-w-[480px]'>
+          <h1 class='text-[36px] leading-tight font-bold mb-5 max-w-4'>
+            {title}
+          </h1>
+          <script
+            charset='utf-8'
+            type='text/javascript'
+            src='//js.hsforms.net/forms/embed/v2.js'
+          ></script>
+          <script is:inline>
+            hbspt.forms.create({
+              region: 'na1',
+              portalId: '4997086',
+              formId: 'a50e39f5-7e2a-4628-a99f-5df157e7b49c'
+            })
+          </script>
+        </div>
+      </div>
+    </div>
+    <img
+      src='/images/cover.jpg'
+      alt='Book cover'
+      class='fixed top-0 bottom-0 right-0 object-cover object-center h-full w-1/2 hidden xl:block'
+    />
+  </article>
+</Plain>

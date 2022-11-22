@@ -5,12 +5,13 @@ import Default from '@layouts/Default.astro'
 
 const title = 'Page not found'
 const description = 'Page not found description'
+const page = { title, description, url: '/404' }
 ---
 
-<Default {title} {description} canonicalURL="/404">
+<Default {...page}>
   <article>
-    <Hero name={title} {description}>
-      <Button as="a" href="/" type="secondary">Homepage</Button>
+    <Hero name={title}>
+      <Button as='a' href='/' type='secondary'>Return to the homepage</Button>
     </Hero>
   </article>
 </Default>

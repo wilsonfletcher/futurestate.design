@@ -6,3 +6,9 @@
 
 @import 'tailwindcss/utilities';
 @import './utilities/index';
+
+@layer base {
+  :root {
+    --color-primary: 51deg 100% 49%; /* #FBD400 */
+  }
+}
