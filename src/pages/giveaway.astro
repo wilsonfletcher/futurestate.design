@@ -1,21 +1,27 @@
 ---
+import Body from '@components/Body.astro'
 import Plain from '@layouts/Plain.astro'
 
-const title = 'Get a free copy of Futurestate Design'
-const description = 'Get a free copy of Futurestate Design'
+const title = 'Get your copy of Futurestate Design'
+const description =
+  'We will process your information and get a copy of Futurestate Design sent out to you in time for christmas.'
 const url = '/giveaway'
+const image = '/images/cover.jpg'
 
 const page = { title, description, url }
 ---
 
 <Plain {...page}>
-  <article class='w-screen h-screen relative'>
+  <article class='w-screen min-h-screen relative'>
     <div class='pt-[156px] container'>
       <div class='xl:w-1/2'>
         <div class='xl:max-w-[480px]'>
           <h1 class='text-[36px] leading-tight font-bold mb-5 max-w-4'>
             {title}
           </h1>
+          <Body class='mb-5'>
+            <p>{description}</p>
+          </Body>
           <script
             charset='utf-8'
             type='text/javascript'
