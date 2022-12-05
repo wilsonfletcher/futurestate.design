@@ -4,11 +4,11 @@ import Plain from '@layouts/Plain.astro'
 
 const title = 'Get your copy of Futurestate Design'
 const description =
-  'We will process your information and get a copy of Futurestate Design sent out to you in time for christmas.'
+  'We know you only want this so you can avoid the relatives for a while – so we’ll do our best to get a copy sent out to you in time for Xmas (UK addresses only please - sleigh diesel is pricey this year).'
 const url = '/giveaway'
 const image = '/images/cover.jpg'
 
-const page = { title, description, url }
+const page = { title, description, url, image }
 ---
 
 <Plain {...page}>
@@ -38,7 +38,7 @@ const page = { title, description, url }
       </div>
     </div>
     <img
-      src='/images/cover.jpg'
+      src={image}
       alt='Book cover'
       class='fixed top-0 bottom-0 right-0 object-cover object-center h-full w-1/2 hidden xl:block'
     />
