@@ -1,49 +1,51 @@
 ---
-import H3 from './H3.vue'
+import H3 from './H3.astro'
 import Url from './Url.astro'
 ---
 
 <article
-  class="flex flex-col md:gap-10 md:flex-row md:items-center bg-[#000] text-white relative"
-  data-component="promotion"
+  class='flex flex-col md:gap-10 md:flex-row md:items-center bg-[#000] text-white relative'
+  data-component='promotion'
 >
-  <div class="md:w-[460px] md:h-[336px] flex-none">
+  <div class='md:w-[460px] md:h-[336px] flex-none'>
     <img
-      src="/images/business-leader.png"
-      width="462"
-      height="336"
-      alt="Photo of Mark Wilson"
+      src='/images/business-leader.png'
+      width='462'
+      height='336'
+      alt='Photo of Mark Wilson'
     />
   </div>
 
-  <div class="p-5 md:flex-grow">
-    <div class="space-y-6">
-      <H3 as="h2">
+  <div class='p-5 md:flex-grow'>
+    <div class='space-y-6'>
+      <H3 as='h2'>
         <Url
-          href="https://www.businessleader.co.uk/business-leader-podcast-mark-wilson/"
-          target="_blank">Preparing businesses <br /> for the future</Url
+          href='https://www.businessleader.co.uk/business-leader-podcast-mark-wilson/'
+          target='_blank'
         >
+          Preparing businesses <br /> for the future
+        </Url>
       </H3>
-      <div class="flex items-center gap-6">
+      <div class='flex items-center gap-6'>
         <div
-          class="rounded-sm w-14 h-14 border-4 flex items-center justify-center text-red podcast"
+          class='rounded-sm w-14 h-14 border-4 flex items-center justify-center text-red podcast'
         >
           <svg
-            width="27"
-            height="37"
-            viewBox="0 0 27 37"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
+            width='27'
+            height='37'
+            viewBox='0 0 27 37'
+            fill='none'
+            xmlns='http://www.w3.org/2000/svg'
           >
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M13.5 23.1429C16.7786 23.1429 19.2857 20.6357 19.2857 17.3571V5.78571C19.2857 2.50714 16.7786 0 13.5 0C10.2214 0 7.71429 2.50714 7.71429 5.78571V17.3571C7.71429 20.6357 10.2214 23.1429 13.5 23.1429ZM23.7214 17.3571C23.7214 23.1429 18.9 27.1929 13.5 27.1929C8.1 27.1929 3.27857 23.1429 3.27857 17.3571H0C0 23.9143 5.20714 29.3143 11.5714 30.2786V36.6429H15.4286V30.2786C21.7929 29.3143 27 23.9143 27 17.3571H23.7214Z"
-              fill="currentColor"></path>
+              fill-rule='evenodd'
+              clip-rule='evenodd'
+              d='M13.5 23.1429C16.7786 23.1429 19.2857 20.6357 19.2857 17.3571V5.78571C19.2857 2.50714 16.7786 0 13.5 0C10.2214 0 7.71429 2.50714 7.71429 5.78571V17.3571C7.71429 20.6357 10.2214 23.1429 13.5 23.1429ZM23.7214 17.3571C23.7214 23.1429 18.9 27.1929 13.5 27.1929C8.1 27.1929 3.27857 23.1429 3.27857 17.3571H0C0 23.9143 5.20714 29.3143 11.5714 30.2786V36.6429H15.4286V30.2786C21.7929 29.3143 27 23.9143 27 17.3571H23.7214Z'
+              fill='currentColor'></path>
           </svg>
         </div>
 
-        <p class="text-xl leading-tight">
+        <p class='text-xl leading-tight'>
           Listen to the interview with Mark on <br />
           <strong>The Business Leader Podcast</strong>
         </p>
@@ -52,7 +54,7 @@ import Url from './Url.astro'
   </div>
 </article>
 
-<style lang="postcss" is:global>
+<style lang='postcss' is:global>
   [data-component='promotion'] {
     p {
       @apply decoration-transparent transition-[text-decoration] duration-300;

@@ -1,0 +1,63 @@
+---
+export enum Kind {
+  yellow = 'yellow',
+  black = 'black',
+  transparent = 'transparent'
+}
+
+export interface ButtonProps {
+  tag?: string
+  href: string
+  kind: Kind
+  external?: boolean
+}
+
+const {
+  href,
+  tag = href ? 'a' : 'button',
+  kind = Kind.yellow,
+  external = false,
+  ...props
+} = Astro.props as ButtonProps
+
+const Tag = tag
+---
+
+<Tag
+  data-component='button'
+  {href}
+  class:list={['button', `button--${kind}`]}
+  target={external && '_blank'}
+  rel={external && 'noopener noreferrer'}
+  {...props}
+>
+  <slot></slot>
+</Tag>
+
+<style lang='postcss' is:global>
+  .button {
+    @apply relative inline-block border-4 rounded-sm border-transparent py-2 px-3 lg:px-7 font-bold leading-[32px] text-base lg:text-xl transition-colors;
+
+    &[aria-current='page'] {
+      &::after {
+        @apply bg-black content-[''] block absolute -right-[4px] -bottom-[4px] -left-[4px] h-[4px];
+      }
+    }
+
+    &--black {
+      @apply border-black text-black;
+
+      &:hover {
+        @apply bg-black text-white;
+      }
+    }
+
+    &--yellow {
+      @apply border-current text-yellow;
+
+      &:hover {
+        @apply bg-yellow text-black;
+      }
+    }
+  }
+</style>

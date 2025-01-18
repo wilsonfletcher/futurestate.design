@@ -1,6 +1,6 @@
 ---
 import Container from '@components/Container.astro'
-import H3 from '@components/H3.vue'
+import H3 from '@components/H3.astro'
 import Article, { Props as ArticleInterface } from '@components/Article.astro'
 
 interface Props {
@@ -12,22 +12,24 @@ interface Props {
 const { id, name, articles, ...props } = Astro.props
 ---
 
-<section data-component="articles" aria-labelledby={id} class="bg-grey-light py-14" {...props}>
+<section
+  data-component='articles'
+  aria-labelledby={id}
+  class='bg-grey-light py-14'
+  {...props}
+>
   <Container>
-    <div class="space-y-[80px]">
-      <H3 as="h2" {id} class="mb-5">{name}</H3>
-      {articles && (
-        <div class="grid gap-5 md:grid-cols-3 lg:gap-14">
-          {articles.slice(0, 3).map((article) => {
-            return (
-              <Article
-                article={article.frontmatter}
-              />
-            )
-          }
-          )}
-        </div>
-      )}
+    <div class='space-y-[80px]'>
+      <H3 as='h2' {id} class='mb-5'>{name}</H3>
+      {
+        articles && (
+          <div class='grid gap-5 md:grid-cols-3 lg:gap-14'>
+            {articles.slice(0, 3).map((article) => {
+              return <Article article={article.frontmatter} />
+            })}
+          </div>
+        )
+      }
     </div>
   </Container>
 </section>

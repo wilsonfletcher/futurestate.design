@@ -1,5 +1,5 @@
 ---
-import Button from '@components/Button.vue'
+import Button from '@components/Button.astro'
 
 interface Item {
   name: string
@@ -12,14 +12,23 @@ const { nav } = Astro.props
 ---
 
 <!-- <pre>{JSON.stringify(nav, null, 2)}</pre> -->
-
-<nav aria-label={nav.name} id="main-navigation">
-  <ul class="flex sm:gap-5">
-    {nav.items.map((item : Item) => (
-      <li>
-        <Button as="a" href={item.url} kind={item.external ? 'black' : 'transparent'} target={item.external && '_blank'} title={item.title}>{item.name}</Button>
-      </li>
-    ))}
+<nav aria-label={nav.name} id='main-navigation'>
+  <ul class='flex sm:gap-5'>
+    {
+      nav.items.map((item: Item) => (
+        <li>
+          <Button
+            as='a'
+            href={item.url}
+            kind={item.external ? 'black' : 'transparent'}
+            target={item.external && '_blank'}
+            title={item.title}
+          >
+            {item.name}
+          </Button>
+        </li>
+      ))
+    }
   </ul>
 </nav>
 
@@ -49,14 +58,14 @@ const { nav } = Astro.props
   setActiveMenuItem()
 </script>
 
-<style lang="postcss">
-li:last-of-type {
-  @apply hidden;
-}
+<style lang='postcss'>
+  li:last-of-type {
+    @apply hidden;
+  }
 
-@media screen(sm) {
- li:last-of-type {
-    @apply block;
-  } 
-}
+  @media screen(sm) {
+    li:last-of-type {
+      @apply block;
+    }
+  }
 </style>

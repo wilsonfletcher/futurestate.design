@@ -1,0 +1,19 @@
+---
+interface Props {
+  tag?: string
+  className?: string
+}
+
+const { tag = 'h4', className, ...props } = Astro.props as Props
+const Tag = tag
+---
+
+<Tag
+  class:list={[
+    'font-extrabold text-2xl leading-[1.2] lg:text-4xl mb-3',
+    className
+  ]}
+  {...props}
+>
+  <slot></slot>
+</Tag>

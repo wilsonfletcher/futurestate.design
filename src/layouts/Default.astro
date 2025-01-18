@@ -3,8 +3,8 @@ import site from '@data/site.js'
 import BaseHead from '../components/BaseHead.astro'
 import Header from '@components/Header.astro'
 import Container from '@components/Container.astro'
-import Button from '@components/Button.vue'
-import H3 from '@components/H3.vue'
+import Button from '@components/Button.astro'
+import H3 from '@components/H3.astro'
 import Footer from '@components/Footer.astro'
 import '@styles/global.css'
 
@@ -72,8 +72,10 @@ const {
                   as='a'
                   href='https://www.amazon.co.uk/dp/1399922106'
                   kind='yellow'
-                  target='_blank'>Buy the book on Amazon</Button
+                  target='_blank'
                 >
+                  Buy the book on Amazon
+                </Button>
               </div>
             </div>
           </Container>

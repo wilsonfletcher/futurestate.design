@@ -1,65 +1,83 @@
 ---
 import site from '@data/site'
-import SchemaWebPage from './SchemaWebPage'
 
 export interface Props {
-  title?: string;
-  description?: string;
-  url?: string;
+  title?: string
+  description?: string
+  url?: string
   image?: {
     url?: string
   }
-  schemaWebPage?: boolean,
+  schemaWebPage?: boolean
   mainEntity?: object
 }
 
-const { title = `${site.title}`, description, url = '/', image = {...site.image}, schemaWebPage = true, mainEntity } = Astro.props
+const {
+  title = `${site.title}`,
+  description,
+  url = '/',
+  image = { ...site.image },
+  schemaWebPage = true,
+  mainEntity
+} = Astro.props
 
 const name = title
-
 ---
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+<meta charset='utf-8' />
+<meta
+  name='viewport'
+  content='width=device-width, initial-scale=1, viewport-fit=cover'
+/>
 <title>{title}</title>
-<meta name="title" content={title}>
-<meta name="description" content={description}>
-<meta property="og:site" content={site.name}>
-<meta property="og:type" content="website">
-<meta property="og:title" content={title}>
-<meta property="og:description" content={description}>
-<meta property="og:url" content={`${site.url}${url}`}>
-<meta property="og:image" content={image.url}>
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:title" content={title}>
-<meta property="twitter:description" content={description}>
-<meta property="twitter:url" content={`${site.url}${url}`}>
-<meta property="twitter:image" content={image.url}>
-<meta name="apple-mobile-web-app-title" content={site.name}>
-<meta name="theme-color" content="#fbd400">
-<meta name="google-site-verification" content={site.googleSiteVerification}>
-<link rel="icon" href="/favicon.svg">
-<link rel="shortcut icon" href="/icons/icon_64x64.c519b2.png">
-<link rel="apple-touch-icon" href="/icons/icon_512x512.c519b2.png" sizes="512x512">
-<link rel="manifest" href="/manifest.json">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta name='title' content={title} />
+<meta name='description' content={description} />
+<meta property='og:site' content={site.name} />
+<meta property='og:type' content='website' />
+<meta property='og:title' content={title} />
+<meta property='og:description' content={description} />
+<meta property='og:url' content={`${site.url}${url}`} />
+<meta property='og:image' content={image.url} />
+<meta property='twitter:card' content='summary_large_image' />
+<meta property='twitter:title' content={title} />
+<meta property='twitter:description' content={description} />
+<meta property='twitter:url' content={`${site.url}${url}`} />
+<meta property='twitter:image' content={image.url} />
+<meta name='apple-mobile-web-app-title' content={site.name} />
+<meta name='theme-color' content='#fbd400' />
+<meta name='google-site-verification' content={site.googleSiteVerification} />
+<link rel='icon' href='/favicon.svg' />
+<link rel='shortcut icon' href='/icons/icon_64x64.c519b2.png' />
 <link
-rel="preload"
-href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;700;800;900&amp;display=swap"
-as="style"
-onload="this.onload=null;this.rel='stylesheet'">
+  rel='apple-touch-icon'
+  href='/icons/icon_512x512.c519b2.png'
+  sizes='512x512'
+/>
+<link rel='manifest' href='/manifest.json' />
+<link rel='preconnect' href='https://fonts.googleapis.com' />
+<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+<link
+  rel='preload'
+  href='https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;700;800;900&display=swap'
+  as='style'
+  onload="this.onload=null;this.rel='stylesheet'"
+/>
 <noscript>
   <link
-    href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;700;800;900&amp;display=swap"
-    rel="stylesheet"
-    type="text/css">
+    href='https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;700;800;900&display=swap'
+    rel='stylesheet'
+    type='text/css'
+  />
 </noscript>
 <script>
-(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-5N2GZXN');</script>
-{schemaWebPage && (
-  <SchemaWebPage {name} {description} {url} {image} {mainEntity} />
-)}
+  ;(function (w, d, s, l, i) {
+    w[l] = w[l] || []
+    w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' })
+    var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s),
+      dl = l != 'dataLayer' ? '&l=' + l : ''
+    j.async = true
+    j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl
+    f.parentNode.insertBefore(j, f)
+  })(window, document, 'script', 'dataLayer', 'GTM-5N2GZXN')
+</script>
