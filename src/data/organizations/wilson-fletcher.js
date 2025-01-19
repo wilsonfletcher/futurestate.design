@@ -1,5 +1,5 @@
-import site from '@data/site'
-import { markWilson, stephanieFletcher } from '@data/people'
+import site from '@/data/site'
+import { markWilson, stephanieFletcher } from '@/data/people'
 
 export default {
   '@id': `${site.url}/#wilson-fletcher`,

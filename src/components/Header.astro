@@ -1,7 +1,7 @@
 ---
-import Container from '@components/Container.astro'
-import Logo from '@components/Logo.astro'
-import Nav from '@components/Nav/Primary.astro'
+import Container from '@/components/Container.astro'
+import Logo from '@/components/Logo.astro'
+import Nav from '@/components/Nav/Primary.astro'
 
 const nav = {
   name: 'Primary',
@@ -9,29 +9,31 @@ const nav = {
     {
       name: 'Book',
       title: 'Buy the book on Amazon',
-      url: '/',
+      url: '/'
     },
     {
       name: 'Workshops',
       title: 'Buy the book on Amazon',
-      url: '/workshops',
-    },{
+      url: '/workshops'
+    },
+    {
       name: 'Buy',
       title: 'Buy the book on Amazon',
       url: 'https://www.amazon.co.uk/dp/1399922106',
-      external: true,
+      external: true
     }
-  ],
+  ]
 }
 ---
 
 <div
-  role="banner"
-  class="absolute top-0 left-0 w-full z-10"
-  data-pattern="header">
+  role='banner'
+  class='absolute top-0 left-0 w-full z-10'
+  data-pattern='header'
+>
   <Container>
-    <div class="flex items-end justify-between h-header-height">
-      <a href="/" rel="home" aria-label="Return to the homepage">
+    <div class='flex items-end justify-between h-header-height'>
+      <a href='/' rel='home' aria-label='Return to the homepage'>
         <Logo />
       </a>
       {nav && <Nav nav={nav} />}
@@ -40,8 +42,8 @@ const nav = {
 </div>
 
 <style is:global>
-:root {
-  --header-height-xs: 140px;
-  --header-height-lg: 156px;
-}
+  :root {
+    --header-height-xs: 140px;
+    --header-height-lg: 156px;
+  }
 </style>

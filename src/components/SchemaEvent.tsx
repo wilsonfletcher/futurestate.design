@@ -1,7 +1,7 @@
-import site from '@data/site'
-import { wilsonFletcher } from '@data/organizations'
-import review from '@data/review'
-import { markWilson } from '@data/people'
+import site from '@/data/site'
+import { wilsonFletcher } from '@/data/organizations'
+import review from '@/data/review'
+import { markWilson } from '@/data/people'
 
 interface SchemaEventProps {
   name: string

@@ -1,6 +1,6 @@
 ---
-import Body from '@components/Body.astro'
-import Url from '@components/Url.astro'
+import Body from '@/components/Body.astro'
+import Url from '@/components/Url.astro'
 
 export interface Props {
   article: {
@@ -14,12 +14,12 @@ const { article, ...props } = Astro.props
 const { name, description, url } = article
 ---
 
-<article data-component="article" class:list={['relative', props.class]}>
-  <h3 class="font-black text-2xl leading-tight mb-3 md:min-h-[90px]">
-    <Url href={url} target="_blank" rel="external">{name}</Url>
+<article data-component='article' class:list={['relative', props.class]}>
+  <h3 class='font-black text-2xl leading-tight mb-3 md:min-h-[90px]'>
+    <Url href={url} target='_blank' rel='external'>{name}</Url>
   </h3>
 
-  <Body class="leading-[1.5]">
+  <Body class='leading-[1.5]'>
     <p>{description}</p>
   </Body>
 </article>

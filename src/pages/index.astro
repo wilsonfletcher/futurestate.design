@@ -1,16 +1,18 @@
 ---
-import site from '@data/site'
-import Default from '@layouts/Default.astro'
-import { Hero } from '@components/index.astro'
-import Container from '@components/Container.astro'
-import BlockQuote from '@components/BlockQuote.astro'
-import Button from '@components/Button.astro'
-import H3 from '@components/H3.astro'
-// import Carousel from '@components/Carousel.astro'
-// import Articles from '@components/Articles.astro'
-import { Content as Home } from '../content/pages/home.md'
-import { Content as MarkWilson } from '../content/people/mark-wilson.md'
-import Promotion from '@components/Promotion.astro'
+import { getEntry, getEntries, getCollection } from 'astro:content'
+
+import site from '@/data/site'
+import Default from '@/layouts/Default.astro'
+import { Hero } from '@/components/index.astro'
+import Container from '@/components/Container.astro'
+import BlockQuote from '@/components/BlockQuote.astro'
+import Button from '@/components/Button.astro'
+import H3 from '@/components/H3.astro'
+// import Carousel from '@/components/Carousel.astro'
+// import Articles from '@/components/Articles.astro'
+import { Content as Home } from '../data/pages/home.md'
+// import { Content as MarkWilson } from '../data/people/mark-wilson.md'
+import Promotion from '@/components/Promotion.astro'
 
 const title = 'Futurestate Design'
 const description =
@@ -22,19 +24,20 @@ const images = [
   { id: 3, url: '/images/book-3.jpg', width: 590, height: 393 }
 ]
 
-const people = await Astro.glob('../content/people/*.md')
-const author = people[0]
+// const people = await Astro.glob('../content/people/*.md')
+// const author = people[0]
 
-const reviews = await Astro.glob('../content/reviews/*.md')
+const review = await getEntry('reviews', 'charles-king')
 
 // const socials = await Astro.glob('../content/socials/*.md')
 
-let articles = await Astro.glob('../content/articles/**/index.md')
-articles = articles.sort(
-  (a, b) =>
-    new Date(b.frontmatter.datePublished).valueOf() -
-    new Date(a.frontmatter.datePublished).valueOf()
-)
+// let articles = await Astro.glob('../content/articles/**/index.md')
+
+// articles = articles.sort(
+//   (a, b) =>
+//     new Date(b.frontmatter.datePublished).valueOf() -
+//     new Date(a.frontmatter.datePublished).valueOf()
+// )
 
 const page = {
   title: `${title} - How to step out of the past to create a business fit for the future`,
@@ -146,7 +149,7 @@ const mainEntity = {
     }
 
     {
-      reviews[1] && (
+      review && (
         <section
           aria-labelledby='reviews'
           class='py-12 lg:py-24 bg-grey-light text-black'
@@ -160,19 +163,19 @@ const mainEntity = {
               </div>
               <div class='lg:col-start-5 lg:col-end-13'>
                 <div class='grid gap-12'>
-                  {reviews[1] && (
+                  {review && (
                     <div class='c-blockquote'>
                       <figure class='leading-tight lg:text-xl'>
                         <blockquote class='mb-5'>
                           <p class="first-of-type::before:content-['open-quote']">
-                            {reviews[1].frontmatter.description}
+                            {review.data.description}
                           </p>
                         </blockquote>
                         <figcaption class='font-bold'>
-                          {reviews[1].frontmatter.author.givenName}{' '}
-                          {reviews[1].frontmatter.author.familyName},{' '}
-                          {reviews[1].frontmatter.author.jobTitle},{' '}
-                          {reviews[1].frontmatter.author.worksFor.name}
+                          {review.data.author.givenName}{' '}
+                          {review.data.author.familyName},{' '}
+                          {review.data.author.jobTitle},{' '}
+                          {review.data.author.worksFor.name}
                         </figcaption>
                       </figure>
                     </div>
@@ -185,7 +188,7 @@ const mainEntity = {
       )
     }
 
-    {
+    <!-- {
       author && (
         <section
           aria-labelledby='author'
@@ -208,16 +211,13 @@ const mainEntity = {
                   About the author
                 </H3>
                 <div class='prose lg:prose-xl leading-[1.2] lg:leading-[1.2]'>
-                  <MarkWilson />
-                </div>
-              </div>
-            </div>
-          </Container>
-        </section>
-      )
-    }
+                  <!-- <MarkWilson /> -->
+  </article>
+</Default>
 
-    <!-- {socials && (
+) } -->
+
+<!-- {socials && (
       <>
         <section aria-labelledby="socials" class="py-12 lg:py-24 bg-grey-light text-black">
           <Container>
@@ -232,6 +232,4 @@ const mainEntity = {
       </>
     )} -->
 
-    <!-- {articles && <Articles id='read-on' name='Read on' {articles} />} -->
-  </article>
-</Default>
+<!-- {articles && <Articles id='read-on' name='Read on' {articles} />} -->

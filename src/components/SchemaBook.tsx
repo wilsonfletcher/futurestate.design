@@ -1,6 +1,6 @@
-import site from '@data/site'
-import { wilsonFletcher } from '@data/organizations'
-import { markWilson, stephanieFletcher } from '@data/people'
+import site from '@/data/site'
+import { wilsonFletcher } from '@/data/organizations'
+import { markWilson, stephanieFletcher } from '@/data/people'
 
 export interface Props {
   name: string

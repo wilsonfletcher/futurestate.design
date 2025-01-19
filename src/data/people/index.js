@@ -1,5 +1,5 @@
-import site from '@data/site'
-import { wilsonFletcher } from '@data/organizations'
+import site from '@/data/site'
+import { wilsonFletcher } from '@/data/organizations'
 
 export const markWilson = {
   '@id': `${site.url}/#mark-wilson`,
